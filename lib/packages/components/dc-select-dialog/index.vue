@@ -177,8 +177,8 @@
 import { nextTick, reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
-import cacheData from '../../constant/cacheData';
 const { proxy } = getCurrentInstance();
+const cacheData = computed(() => proxy.$store.getters.api);
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
     // 标题
@@ -216,7 +216,7 @@ const props = defineProps({
     objectName: {
         type: String,
         default: '',
-        validator: (value) => Object.keys(cacheData).includes(value),
+        validator: (value) => Object.keys(store.getters.api).includes(value),
     },
     // 查询参数
     params: {
@@ -348,7 +348,7 @@ const showSelectedRows = computed(() => {
 watch(
     () => props.modelValue,
     async (newVal) => {
-        currentObject.value = cacheData[props.objectName];
+        currentObject.value = store.getters.api[props.objectName];
         let ids = [];
         if (Array.isArray(newVal)) {
             ids = newVal.map((item) => item?.id || item);

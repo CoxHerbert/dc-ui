@@ -80,14 +80,15 @@
 
 <script setup>
 import { reactive, toRefs } from 'vue';
-import cacheData from '../../constant/cacheData';
+import store from '../../../store';
 const { proxy } = getCurrentInstance();
+const cacheData = computed(() => proxy.$store.getters.api);
 const props = defineProps({
     // 类的名称
     objectName: {
         type: String,
         default: '',
-        validator: (value) => Object.keys(cacheData).includes(value),
+        validator: (value) => Object.keys(store.getters.api).includes(value),
     },
     // 查询参数
     params: {
@@ -117,7 +118,7 @@ const componentData = reactive({
 });
 const { total, queryParams, tableData, openSubmit, submitTitle, formData, ids } = toRefs(componentData);
 
-const currentObject = computed(() => cacheData[props.objectName]);
+const currentObject = computed(() => store.getters.api[props.objectName]);
 
 onMounted(() => {
     getData();

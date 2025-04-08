@@ -197,9 +197,9 @@
 import { nextTick, onMounted, reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
-import cacheData from '../../constant/cacheData';
-const Api = window.$dcConfig.api;
 const { proxy } = getCurrentInstance();
+const cacheData = computed(() => proxy.$store.getters.api);
+const Api = window.$dcConfig.api;
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
     // 标题
@@ -216,7 +216,7 @@ const props = defineProps({
     objectName: {
         type: String,
         default: '',
-        validator: (value) => Object.keys(cacheData).includes(value),
+        validator: (value) => Object.keys(store.getters.api).includes(value),
     },
     // 查询参数
     params: {

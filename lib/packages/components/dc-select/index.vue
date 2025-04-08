@@ -19,7 +19,7 @@
 import { reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store/index';
-import cacheData from '../../constant/cacheData';
+const cacheData = computed(() => store.getters.api);
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
     // 绑定的值
@@ -31,7 +31,7 @@ const props = defineProps({
     objectName: {
         type: String,
         default: '',
-        validator: (value) => Object.keys(cacheData).includes(value),
+        validator: (value) => Object.keys(store.getters.api).includes(value),
     },
     // 查询参数
     params: {
@@ -108,7 +108,7 @@ onMounted(async () => {
 });
 
 const getOptions = async () => {
-    currentObject.value = cacheData[props.objectName];
+    currentObject.value = store.getters.api[props.objectName];
     const params = {};
     params['queryName'] = undefined;
     params['queryValue'] = undefined;

@@ -6,7 +6,8 @@
 import { reactive } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
-import cacheData from '../../constant/cacheData';
+const { proxy } = getCurrentInstance();
+const cacheData = computed(() => proxy.$store.getters.api);
 const props = defineProps({
     // 需要展示的类名 比如用户 user
     objectName: {
@@ -35,7 +36,7 @@ watch(
     () => props.modelValue,
     async (newVal, oldVal) => {
         try {
-            currentObject.value = cacheData[props.objectName];
+            currentObject.value = store.getters.api[props.objectName];
             let ids;
             if (Array.isArray(newVal)) {
                 ids = newVal.map((item) => item?.id || item);

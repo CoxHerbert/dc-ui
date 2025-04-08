@@ -1,52 +1,22 @@
-import dcSelect from './lib/packages/components/dc-select/index.vue';
-import dcSelectRemote from './lib/packages/components/dc-select-remote/index.vue';
-import dcSelectUser from './lib/packages/components/dc-select-user/index.vue';
-import dcSelectCm from './lib/packages/components/dc-select-cm/index.vue';
-import dcSelectPrint from './lib/packages/components/dc-select-print/index.vue';
-import dcSelectDialog from './lib/packages/components/dc-select-dialog/index.vue';
-import dcSelectDialogV2 from './lib/packages/components/dc-select-dialog-v2/index.vue';
-import dcPagination from './lib/packages/components/dc-pagination/index.vue';
-import dcUpload from './lib/packages/components/dc-upload/index.vue';
-import dcUploadImg from './lib/packages/components/dc-upload-img/index.vue';
-import dcDateRange from './lib/packages/components/dc-date-range/index.vue';
-import dcChat from './lib/packages/components/dc-chat/index.vue';
-import dcView from './lib/packages/components/dc-view/index.vue';
-import dcSearchGroup from './lib/packages/components/dc-search-group/index.vue';
-import dcDict from './lib/packages/components/dc-dict/index.vue';
-import dcDictKey from './lib/packages/components/dc-dict-key/index.vue';
-import dcDateRangePicker from './lib/packages/components/dc-date-range-picker/index.vue';
-import dcRightToolbar from './lib/packages/components/dc-right-toolbar/index.vue';
-import dcSeamlessScroll from './lib/packages/components/dc-seamless-scroll/index.vue';
-import dcDragPanel from './lib/packages/components/dc-drag-panel/index.vue';
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
+import components from './lib/packages/components/index';
+import store from './lib/store/index';
 
-// 定义一个对象，包含所有组件
-const components = {
-    dcSelect,
-    dcSelectRemote,
-    dcSelectUser,
-    dcSelectCm,
-    dcSelectPrint,
-    dcSelectDialog,
-    dcSelectDialogV2,
-    dcPagination,
-    dcUpload,
-    dcUploadImg,
-    dcDateRange,
-    dcChat,
-    dcView,
-    dcSearchGroup,
-    dcDict,
-    dcDictKey,
-    dcDateRangePicker,
-    dcRightToolbar,
-    dcSeamlessScroll,
-    dcDragPanel,
-};
+import { createApp } from 'vue';
+
+const app = createApp({});
+for (const [key, component] of Object.entries(components)) {
+    app.component(key, component);
+}
+app.use(ElementPlus);
+app.use(store);
 
 export default {
     install(Vue, options) {
         // 你可以在这里进行任何初始化操作
         window.$dcConfig = options;
+        store.dispatch('UpdateApi', options.api);
         for (const [key, component] of Object.entries(components)) {
             Vue.component(key, component);
         }

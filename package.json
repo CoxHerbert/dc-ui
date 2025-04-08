@@ -2,13 +2,13 @@
     "name": "dc-ui",
     "private": true,
     "version": "0.0.0",
-    "main": "./index.js",
+    "main": "dist/dc-ui.umd.js",
     "type": "module",
-    "module": "./index.js",
+    "module": "./dist/dc-ui.es.js",
     "exports": {
         ".": {
-            "import": "./index.js",
-            "require": "./index.js"
+            "import": "./dist/dc-ui.es.js",
+            "require": "./dist/dc-ui.umd.js"
         }
     },
     "files": [
