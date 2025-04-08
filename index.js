@@ -43,9 +43,12 @@ const components = {
     dcDragPanel,
 };
 
+import globalData from './lib/config/globalData';
+
 export default {
     install(Vue, options) {
-        console.log('install options', options);
+        globalData.api = options.api;
+        console.log('install globalData', globalData);
         // 你可以在这里进行任何初始化操作
         Vue.config.globalProperties.$myLibraryConfig = options.config;
     },
