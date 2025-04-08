@@ -1,44 +1,43 @@
-// export { default as dcSelect } from './lib/packages/components/dc-select/index.vue';
-// export { default as dcSelectRemote } from './lib/packages/components/dc-select-remote/index.vue';
-// export { default as dcSelectUser } from './lib/packages/components/dc-select-user/index.vue';
-// export { default as dcSelectCm } from './lib/packages/components/dc-select-cm/index.vue';
-// export { default as dcSelectPrint } from './lib/packages/components/dc-select-print/index.vue';
-// export { default as dcSelectDialog } from './lib/packages/components/dc-select-dialog/index.vue';
-// export { default as dcSelectDialogV2 } from './lib/packages/components/dc-select-dialog-v2/index.vue';
-// export { default as dcPagination } from './lib/packages/components/dc-pagination/index.vue';
-// export { default as dcUpload } from './lib/packages/components/dc-upload/index.vue';
-// export { default as dcUploadImg } from './lib/packages/components/dc-upload-img/index.vue';
-// export { default as dcDateRange } from './lib/packages/components/dc-date-range/index.vue';
-// export { default as dcChat } from './lib/packages/components/dc-chat/index.vue';
-// export { default as dcView } from './lib/packages/components/dc-view/index.vue';
-// export { default as dcSearchGroup } from './lib/packages/components/dc-search-group/index.vue';
-// export { default as dcDict } from './lib/packages/components/dc-dict/index.vue';
-// export { default as dcDictKey } from './lib/packages/components/dc-dict-key/index.vue';
-// export { default as dcDateRangePicker } from './lib/packages/components/dc-date-range-picker/index.vue';
-// export { default as dcRightToolbar } from './lib/packages/components/dc-right-toolbar/index.vue';
-// export { default as dcSeamlessScroll } from './lib/packages/components/dc-seamless-scroll/index.vue';
-// export { default as dcDragPanel } from './lib/packages/components/dc-drag-panel/index.vue';
+import { dcSelect } from './lib/packages/components/dc-select/index.vue';
+import { dcSelectRemote } from './lib/packages/components/dc-select-remote/index.vue';
+import { dcSelectUser } from './lib/packages/components/dc-select-user/index.vue';
+import { dcSelectCm } from './lib/packages/components/dc-select-cm/index.vue';
+import { dcSelectPrint } from './lib/packages/components/dc-select-print/index.vue';
+import { dcSelectDialog } from './lib/packages/components/dc-select-dialog/index.vue';
+import { dcSelectDialogV2 } from './lib/packages/components/dc-select-dialog-v2/index.vue';
+import { dcPagination } from './lib/packages/components/dc-pagination/index.vue';
+import { dcUpload } from './lib/packages/components/dc-upload/index.vue';
+import { dcUploadImg } from './lib/packages/components/dc-upload-img/index.vue';
+import { dcDateRange } from './lib/packages/components/dc-date-range/index.vue';
+import { dcChat } from './lib/packages/components/dc-chat/index.vue';
+import { dcView } from './lib/packages/components/dc-view/index.vue';
+import { dcSearchGroup } from './lib/packages/components/dc-search-group/index.vue';
+import { dcDict } from './lib/packages/components/dc-dict/index.vue';
+import { dcDictKey } from './lib/packages/components/dc-dict-key/index.vue';
+import { dcDateRangePicker } from './lib/packages/components/dc-date-range-picker/index.vue';
+import { dcRightToolbar } from './lib/packages/components/dc-right-toolbar/index.vue';
+import { dcSeamlessScroll } from './lib/packages/components/dc-seamless-scroll/index.vue';
+import { dcDragPanel } from './lib/packages/components/dc-drag-panel/index.vue';
 
-let pluginOptions = null;
-
-function getPluginOptions() {
-    return pluginOptions;
-}
-
-const init = {
-    install(app, options) {
-        if (!options || !options) {
-            console.warn('[init] 初始化缺少 globalData 参数！');
-            return;
-        }
-
-        pluginOptions = options;
-
-        // 使用 provide 提供全局数据
-        app.provide('globalData', options);
-
-        console.log('插件初始化完成，全局数据为：', options);
-    },
+export {
+    dcSelect,
+    dcSelectRemote,
+    dcSelectUser,
+    dcSelectCm,
+    dcSelectPrint,
+    dcSelectDialog,
+    dcSelectDialogV2,
+    dcPagination,
+    dcUpload,
+    dcUploadImg,
+    dcDateRange,
+    dcChat,
+    dcView,
+    dcSearchGroup,
+    dcDict,
+    dcDictKey,
+    dcDateRangePicker,
+    dcRightToolbar,
+    dcSeamlessScroll,
+    dcDragPanel,
 };
-
-export { init as default, getPluginOptions };
