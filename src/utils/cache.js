@@ -1,7 +1,8 @@
 import { ref, toRefs } from 'vue';
-import Api from '@/api/index';
-import Constant from '@/const/index';
-import store from '@/store/index';
+import Constant from '../const/index';
+import store from '../store/index';
+
+const Api = inject('globalData');
 
 /**
  * @param cacheEnum 缓存枚举如需新增MAP或者LIST需前往Constant添加

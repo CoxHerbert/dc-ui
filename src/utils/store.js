@@ -1,5 +1,5 @@
-import { validatenull } from '@/utils/validate';
-import website from '@/config/website';
+import { validatenull } from './validate';
+import website from '../config/website';
 
 const keyName = website.key + '-';
 /**

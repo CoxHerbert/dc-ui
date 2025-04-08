@@ -1,4 +1,4 @@
-import website from '@/config/website';
+import website from '../config/website';
 import { sm2 } from 'sm-crypto';
 
 /**
@@ -7,9 +7,9 @@ import { sm2 } from 'sm-crypto';
  * @returns {*}
  */
 export function encrypt(data) {
-  try {
-    return sm2.doEncrypt(data, website.oauth2.publicKey, 0);
-  } catch {
-    return '';
-  }
+    try {
+        return sm2.doEncrypt(data, website.oauth2.publicKey, 0);
+    } catch {
+        return '';
+    }
 }

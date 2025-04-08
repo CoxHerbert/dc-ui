@@ -1,13 +1,12 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import packageConfig from 'vite-plugin-package-config';
 import path from 'path';
 
 export default defineConfig({
-    plugins: [vue(), packageConfig()],
+    plugins: [vue()],
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'index.js'),
+            entry: path.resolve(__dirname, './src/index.js'),
             name: 'DcUiLib',
             fileName: (format) => `dc-ui-lib.${format}.js`,
         },

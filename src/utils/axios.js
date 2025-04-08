@@ -6,16 +6,16 @@
  * isToken是否需要token
  */
 import axios from 'axios';
-import { serialize, tansParams } from '@/utils/util';
-import { getToken, removeToken } from '@/utils/auth';
-import { isURL, validatenull } from '@/utils/validate';
+import { serialize, tansParams } from './util';
+import { getToken, removeToken } from './auth';
+import { isURL, validatenull } from './validate';
 import { ElMessage } from 'element-plus';
-import website from '@/config/website';
+import website from '../config/website';
 import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
 import { Base64 } from 'js-base64';
-import { baseUrl } from '@/config/env';
-import crypto from '@/utils/crypto';
+import { baseUrl } from '../config/env';
+import crypto from './crypto';
 
 // 全局未授权错误提示状态，只提示一次
 let isErrorShown = false;
