@@ -19,14 +19,44 @@ import dcRightToolbar from './lib/packages/components/dc-right-toolbar/index.vue
 import dcSeamlessScroll from './lib/packages/components/dc-seamless-scroll/index.vue';
 import dcDragPanel from './lib/packages/components/dc-drag-panel/index.vue';
 
+// 定义一个对象，包含所有组件
+const components = {
+    dcSelect,
+    dcSelectRemote,
+    dcSelectUser,
+    dcSelectCm,
+    dcSelectPrint,
+    dcSelectDialog,
+    dcSelectDialogV2,
+    dcPagination,
+    dcUpload,
+    dcUploadImg,
+    dcDateRange,
+    dcChat,
+    dcView,
+    dcSearchGroup,
+    dcDict,
+    dcDictKey,
+    dcDateRangePicker,
+    dcRightToolbar,
+    dcSeamlessScroll,
+    dcDragPanel,
+};
+
 // 定义插件安装方法
 const install = (app, options) => {
-    app.provide('globalData', options);
+    if (options) {
+        // 提供全局数据
+        app.provide('globalData', options);
+    } else {
+        console.warn('[init] 初始化缺少 globalData 参数！');
+    }
     Object.keys(components).forEach((key) => {
         app.component(key, components[key]);
     });
 };
 
+// 导出插件和组件
 export {
     install,
     dcSelect,
