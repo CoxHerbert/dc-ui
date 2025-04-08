@@ -25,10 +25,10 @@ function getPluginOptions() {
     return pluginOptions;
 }
 
-const MyPlugin = {
+const init = {
     install(app, options) {
         if (!options || !options.globalData) {
-            console.warn('[MyPlugin] 初始化缺少 globalData 参数！');
+            console.warn('[init] 初始化缺少 globalData 参数！');
             return;
         }
 
@@ -41,4 +41,4 @@ const MyPlugin = {
     },
 };
 
-export { MyPlugin as default, getPluginOptions };
+export { init as default, getPluginOptions };
