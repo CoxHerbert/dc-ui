@@ -19,5 +19,12 @@ export default defineConfig({
                 },
             },
         },
+        // 👇 关键配置：让 console.log 保留
+        minify: 'esbuild',
+        // 👇 禁用自动删除 console.log
+        terserOptions: undefined,
+        esbuild: {
+            drop: [], // 默认是 ['console', 'debugger']
+        },
     },
 });

@@ -45,6 +45,15 @@
 
 export default {
     install(Vue, options) {
+        const div = document.createElement('div');
+        div.innerText = 'DcUi 插件已加载';
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.zIndex = 99999;
+        div.style.background = 'yellow';
+        document.body.appendChild(div);
+
         console.log(options);
         // 你可以在这里进行任何初始化操作
         Vue.config.globalProperties.$myLibraryConfig = options.config;
