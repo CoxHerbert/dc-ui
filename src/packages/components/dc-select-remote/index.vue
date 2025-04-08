@@ -31,9 +31,9 @@
 
 <script setup>
 import { reactive, toRefs, onMounted } from 'vue';
-import ComponentApi from './../../api/index';
+import ComponentApi from '../../api/index';
 import store from '@/store/';
-import cacheData from './../../constant/cacheData';
+import cacheData from '../../constant/cacheData';
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
     // 绑定的值

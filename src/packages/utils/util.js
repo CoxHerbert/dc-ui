@@ -1,5 +1,5 @@
-import cacheData from './../constant/cacheData';
-import ComponentApi from './../../api/index';
+import cacheData from '../constant/cacheData';
+import ComponentApi from '../../api/index';
 import store from '@/store/';
 
 export default {

@@ -195,7 +195,7 @@
 
 <script setup>
 import { nextTick, reactive, toRefs } from 'vue';
-import ComponentApi from './../../api/index';
+import ComponentApi from '../../api/index';
 import store from '@/store/';
 import { deepClone } from '@/utils/util';
 const Api = inject('globalData');
