@@ -13,7 +13,8 @@
     },
     "files": [
         "dist",
-        "lib"
+        "lib",
+        "index.js"
     ],
     "scripts": {
         "dev": "vite",
