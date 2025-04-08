@@ -118,7 +118,7 @@
 </template>
 
 <script setup>
-import { nextTick, reactive, toRefs } from 'vue';
+import { nextTick, reactive, toRefs, inject } from 'vue';
 import { deepClone } from '../../../utils/util';
 const Api = inject('globalData');
 // 校验数量

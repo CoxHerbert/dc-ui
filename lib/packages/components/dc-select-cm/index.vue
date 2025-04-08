@@ -194,7 +194,7 @@
 </template>
 
 <script setup>
-import { nextTick, onMounted, reactive, toRefs } from 'vue';
+import { nextTick, onMounted, reactive, toRefs, inject } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
 import cacheData from '../../constant/cacheData';

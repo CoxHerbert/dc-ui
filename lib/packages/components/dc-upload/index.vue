@@ -71,6 +71,7 @@
 </template>
 
 <script setup>
+import { inject } from 'vue';
 import { Base64 } from 'js-base64';
 import website from '../../../config/website';
 import { downloadFileBlob, getFileIconByUrl } from '../../../utils/util';
