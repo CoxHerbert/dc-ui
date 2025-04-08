@@ -196,8 +196,8 @@
 <script setup>
 import { nextTick, reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
-import store from '@/store/';
-import { deepClone } from '@/utils/util';
+import store from '../../../store';
+import { deepClone } from '../../../utils/util';
 const Api = inject('globalData');
 // 校验数量
 const validateSelectionLimit = ({ selection }) => {

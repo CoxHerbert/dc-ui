@@ -8,7 +8,7 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, 'index.js'),
             name: 'DcUiLib',
-            fileName: (format) => `dc-ui-lib.${format}.js`,
+            fileName: (format) => `dc-ui.${format}.js`,
         },
         rollupOptions: {
             external: ['vue', 'element-plus'],

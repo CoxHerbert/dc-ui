@@ -5,7 +5,7 @@
 <script setup>
 import { reactive } from 'vue';
 import ComponentApi from '../../api/index';
-import store from '@/store/';
+import store from '../../../store';
 import cacheData from '../../constant/cacheData';
 const props = defineProps({
     // 需要展示的类名 比如用户 user

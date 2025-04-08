@@ -196,7 +196,7 @@
 <script setup>
 import { nextTick, onMounted, reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
-import store from '@/store/';
+import store from '../../../store';
 import cacheData from '../../constant/cacheData';
 const Api = inject('globalData');
 const { proxy } = getCurrentInstance();

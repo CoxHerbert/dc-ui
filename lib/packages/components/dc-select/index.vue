@@ -18,7 +18,7 @@
 <script setup>
 import { reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
-import store from '@/store/';
+import store from '../../../store/index';
 import cacheData from '../../constant/cacheData';
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({

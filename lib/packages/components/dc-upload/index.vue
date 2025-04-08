@@ -72,8 +72,8 @@
 
 <script setup>
 import { Base64 } from 'js-base64';
-import website from '@/config/website';
-import { downloadFileBlob, getFileIconByUrl } from '@/utils/util';
+import website from '../../../config/website';
+import { downloadFileBlob, getFileIconByUrl } from '../../../utils/util';
 import { computed } from 'vue';
 const Api = inject('globalData');
 const props = defineProps({
