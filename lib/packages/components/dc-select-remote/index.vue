@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { reactive, toRefs, onMounted } from 'vue';
+import { reactive, toRefs, onMounted, getCurrentInstance } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
 const { proxy } = getCurrentInstance();

@@ -174,7 +174,7 @@
 </template>
 
 <script setup>
-import { nextTick, reactive, toRefs } from 'vue';
+import { nextTick, reactive, toRefs, getCurrentInstance } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
 const { proxy } = getCurrentInstance();

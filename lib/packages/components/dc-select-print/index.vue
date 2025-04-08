@@ -118,7 +118,7 @@
 </template>
 
 <script setup>
-import { nextTick, reactive, toRefs } from 'vue';
+import { nextTick, reactive, toRefs, getCurrentInstance } from 'vue';
 import { deepClone } from '../../../utils/util';
 const Api = window.$dcConfig.api;
 // 校验数量

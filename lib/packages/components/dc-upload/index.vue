@@ -74,7 +74,7 @@
 import { Base64 } from 'js-base64';
 import website from '../../../config/website';
 import { downloadFileBlob, getFileIconByUrl } from '../../../utils/util';
-import { computed } from 'vue';
+import { computed, getCurrentInstance } from 'vue';
 const Api = window.$dcConfig.api;
 const props = defineProps({
     modelValue: [String, Object, Array],
