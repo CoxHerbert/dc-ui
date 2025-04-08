@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [vue()],
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'index.js'),
+            entry: path.resolve(__dirname, './src/index.js'),
             name: 'DcUiLib',
             fileName: (format) => `dc-ui-lib.${format}.js`,
         },
