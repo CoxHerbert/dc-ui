@@ -1,8 +1,8 @@
-const o = {
-  api: null
-}, i = (l, a) => {
-  a ? (o.api = a.api, l.config.globalProperties.$globalData = o, console.log(l, a)) : console.warn("[init] 初始化缺少 options.api 参数！");
+const e = {
+  install(l, o) {
+    console.log(o), l.config.globalProperties.$myLibraryConfig = o.config;
+  }
 };
 export {
-  i as default
+  e as default
 };

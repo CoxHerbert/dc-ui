@@ -43,22 +43,10 @@
 //     dcDragPanel,
 // };
 
-import globalData from './lib/config/globalData';
-
-// 定义插件安装方法
-const install = (Vue, options) => {
-    if (options) {
-        // 提供全局数据
-        globalData.api = options.api;
-        // 将 globalData 注入到 Vue 实例的全局属性中
-        Vue.config.globalProperties.$globalData = globalData;
-        console.log(Vue, options);
-    } else {
-        console.warn('[init] 初始化缺少 options.api 参数！');
-    }
-    // Object.keys(components).forEach((key) => {
-    //     Vue.component(key, components[key]);
-    // });
+export default {
+    install(Vue, options) {
+        console.log(options);
+        // 你可以在这里进行任何初始化操作
+        Vue.config.globalProperties.$myLibraryConfig = options.config;
+    },
 };
-
-export default install;
