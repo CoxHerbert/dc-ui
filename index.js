@@ -52,6 +52,7 @@ const install = (Vue, options) => {
         globalData.api = options.api;
         // 将 globalData 注入到 Vue 实例的全局属性中
         Vue.config.globalProperties.$globalData = globalData;
+        console.log(Vue, options);
     } else {
         console.warn('[init] 初始化缺少 options.api 参数！');
     }
