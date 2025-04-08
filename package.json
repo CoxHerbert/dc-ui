@@ -2,9 +2,9 @@
     "name": "dc-ui-lib",
     "private": true,
     "version": "0.0.0",
-    "type": "module",
     "main": "dist/dc-ui-lib.umd.js",
-    "module": "dist/dc-ui-lib.es.js",
+    "type": "module",
+    "module": "./index.js",
     "exports": {
         ".": {
             "import": "./dist/dc-ui-lib.es.js",
