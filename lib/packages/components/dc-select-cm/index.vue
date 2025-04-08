@@ -198,7 +198,7 @@ import { nextTick, onMounted, reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
 import cacheData from '../../constant/cacheData';
-const Api = inject('globalData');
+const Api = window.$dcConfig.api;
 const { proxy } = getCurrentInstance();
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({

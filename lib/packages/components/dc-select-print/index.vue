@@ -120,7 +120,7 @@
 <script setup>
 import { nextTick, reactive, toRefs } from 'vue';
 import { deepClone } from '../../../utils/util';
-const Api = inject('globalData');
+const Api = window.$dcConfig.api;
 // 校验数量
 const validateSelectionLimit = ({ selection }) => {
     let mergedArray = [...showSelectedRows.value];
