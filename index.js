@@ -43,13 +43,16 @@ const components = {
     dcDragPanel,
 };
 
+import globalData from './lib/config/globalData';
+
 // 定义插件安装方法
 const install = (app, options) => {
     if (options) {
         // 提供全局数据
-        app.provide('globalData', options);
+        globalData.api = options.api;
+        console.log(globalData);
     } else {
-        console.warn('[init] 初始化缺少 globalData 参数！');
+        console.warn('[init] 初始化缺少 options.api 参数！');
     }
     Object.keys(components).forEach((key) => {
         app.component(key, components[key]);
