@@ -58165,30 +58165,10 @@ const tre = ["innerHTML"], rre = /* @__PURE__ */ ek({
   dcSeamlessScroll: cre,
   dcDragPanel: vre
 }, Nre = (r, t) => {
-  t ? (oT.api = t.api, console.log(oT)) : console.warn("[init] 初始化缺少 options.api 参数！"), Object.keys(sT).forEach((e) => {
+  t ? (oT.api = t.api, r.config.globalProperties.$globalData = oT, console.log(r.config.globalProperties.$globalData)) : console.warn("[init] 初始化缺少 options.api 参数！"), Object.keys(sT).forEach((e) => {
     r.component(e, sT[e]);
   });
 };
 export {
-  Nte as dcChat,
-  P3 as dcDateRange,
-  jte as dcDateRangePicker,
-  Gte as dcDict,
-  $te as dcDictKey,
-  vre as dcDragPanel,
-  h3 as dcPagination,
-  Qte as dcRightToolbar,
-  cre as dcSeamlessScroll,
-  Vte as dcSearchGroup,
-  X5 as dcSelect,
-  wO as dcSelectCm,
-  ZO as dcSelectDialog,
-  l3 as dcSelectDialogV2,
-  BO as dcSelectPrint,
-  Z5 as dcSelectRemote,
-  fO as dcSelectUser,
-  D3 as dcUpload,
-  R3 as dcUploadImg,
-  Bte as dcView,
-  Nre as install
+  Nre as default
 };

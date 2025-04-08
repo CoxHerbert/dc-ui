@@ -50,7 +50,9 @@ const install = (app, options) => {
     if (options) {
         // 提供全局数据
         globalData.api = options.api;
-        console.log(globalData);
+        // 将 globalData 注入到 Vue 实例的全局属性中
+        app.config.globalProperties.$globalData = globalData;
+        console.log(app.config.globalProperties.$globalData);
     } else {
         console.warn('[init] 初始化缺少 options.api 参数！');
     }
@@ -59,27 +61,4 @@ const install = (app, options) => {
     });
 };
 
-// 导出插件和组件
-export {
-    install,
-    dcSelect,
-    dcSelectRemote,
-    dcSelectUser,
-    dcSelectCm,
-    dcSelectPrint,
-    dcSelectDialog,
-    dcSelectDialogV2,
-    dcPagination,
-    dcUpload,
-    dcUploadImg,
-    dcDateRange,
-    dcChat,
-    dcView,
-    dcSearchGroup,
-    dcDict,
-    dcDictKey,
-    dcDateRangePicker,
-    dcRightToolbar,
-    dcSeamlessScroll,
-    dcDragPanel,
-};
+export default install;
