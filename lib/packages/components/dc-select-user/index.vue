@@ -194,7 +194,7 @@
 </template>
 
 <script setup>
-import { nextTick, reactive, toRefs, inject } from 'vue';
+import { nextTick, reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
 import { deepClone } from '../../../utils/util';

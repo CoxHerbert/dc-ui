@@ -27,7 +27,7 @@ function getPluginOptions() {
 
 const init = {
     install(app, options) {
-        if (!options || !options.globalData) {
+        if (!options || !options) {
             console.warn('[init] 初始化缺少 globalData 参数！');
             return;
         }
@@ -35,9 +35,9 @@ const init = {
         pluginOptions = options;
 
         // 使用 provide 提供全局数据
-        app.provide('globalData', options.globalData);
+        app.provide('globalData', options);
 
-        console.log('插件初始化完成，全局数据为：', options.globalData);
+        console.log('插件初始化完成，全局数据为：', options);
     },
 };
 
