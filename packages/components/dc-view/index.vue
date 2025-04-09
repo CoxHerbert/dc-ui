@@ -4,6 +4,7 @@
 
 <script setup>
 import { defineProps, reactive, toRefs, watch, computed, inject } from 'vue';
+import request from '../../utils/request';
 const { cacheData, store } = inject('globalConfig');
 
 const props = defineProps({
@@ -52,7 +53,7 @@ watch(
                 ids = '';
             }
             if (!ids || (Array.isArray(ids) && ids.length === 0)) return;
-            await ComponentApi.cache.getView({
+            await request.getView({
                 url: currentObject.value.url,
                 data: ids,
             });
