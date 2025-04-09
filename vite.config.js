@@ -7,8 +7,8 @@ export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, 'index.js'),
-            name: 'dcui',
-            fileName: (format) => `dc-ui.${format}.js`,
+            name: 'MyBusinessUI',
+            fileName: (format) => `my-business-ui.${format}.js`,
         },
         rollupOptions: {
             external: ['vue', 'element-plus'],
@@ -18,13 +18,6 @@ export default defineConfig({
                     'element-plus': 'ElementPlus',
                 },
             },
-        },
-        // 👇 关键配置：让 console.log 保留
-        minify: 'esbuild',
-        // 👇 禁用自动删除 console.log
-        terserOptions: undefined,
-        esbuild: {
-            drop: [], // 默认是 ['console', 'debugger']
         },
     },
 });
