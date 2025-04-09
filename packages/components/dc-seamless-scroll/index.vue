@@ -1,5 +1,5 @@
 <template>
-    <div class="table">
+    <div class="table table-container">
         <div class="table-header">
             <div
                 class="table-column"
@@ -74,7 +74,8 @@ const classOptions = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.table {
+.table,
+.table-container {
     width: 100%;
     height: 100%;
     color: #000;

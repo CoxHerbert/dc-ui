@@ -26610,14 +26610,14 @@ function $m(r, t, e, a) {
         var y = r.get(["circular", "rotateLabel"]);
         UI(e, y, l, u);
       }
-      e4[t](r, s, o, f, l, u, c), s.eachEdge(function(m, _) {
+      eH[t](r, s, o, f, l, u, c), s.eachEdge(function(m, _) {
         var S = Zr(m.getModel().get(["lineStyle", "curveness"]), Hm(m, r, _), 0), x = Za(m.node1.getLayout()), b = Za(m.node2.getLayout()), w, T = (x[0] + b[0]) / 2, D = (x[1] + b[1]) / 2;
         +S && (S *= 3, w = [l * S + T * (1 - S), u * S + D * (1 - S)]), m.setLayout([x, b, w]);
       });
     }
   }
 }
-var e4 = {
+var eH = {
   value: function(r, t, e, a, n, i, o) {
     var s = 0, l = e.getSum("value"), u = Math.PI * 2 / (l || o);
     t.eachNode(function(f) {
@@ -26667,13 +26667,13 @@ function UI(r, t, e, a) {
       });
   }
 }
-function t4(r) {
+function tH(r) {
   r.eachSeriesByType("graph", function(t) {
     t.get("layout") === "circular" && $m(t, "symbolSize");
   });
 }
 var Po = Ap;
-function r4(r, t, e) {
+function rH(r, t, e) {
   for (var a = r, n = t, i = e.rect, o = i.width, s = i.height, l = [i.x + o / 2, i.y + s / 2], u = e.gravity == null ? 0.1 : e.gravity, f = 0; f < a.length; f++) {
     var c = a[f];
     c.p || (c.p = oo(o * (Math.random() - 0.5) + l[0], s * (Math.random() - 0.5) + l[1])), c.pp = Za(c.p), c.edges = null;
@@ -26741,7 +26741,7 @@ function r4(r, t, e) {
     }
   };
 }
-function a4(r) {
+function aH(r) {
   r.eachSeriesByType("graph", function(t) {
     var e = t.coordinateSystem;
     if (!(e && e.type !== "view"))
@@ -26772,7 +26772,7 @@ function a4(r) {
             curveness: D,
             ignoreForceLayout: T.get("ignoreForceLayout")
           };
-        }), m = e.getBoundingRect(), _ = r4(g, y, {
+        }), m = e.getBoundingRect(), _ = rH(g, y, {
           rect: m,
           gravity: s.get("gravity"),
           friction: s.get("friction")
@@ -26792,7 +26792,7 @@ function a4(r) {
         t.forceLayout = null;
   });
 }
-function n4(r, t, e) {
+function nH(r, t, e) {
   var a = Z(r.getBoxLayoutParams(), {
     aspect: e
   });
@@ -26801,7 +26801,7 @@ function n4(r, t, e) {
     height: t.getHeight()
   });
 }
-function i4(r, t) {
+function iH(r, t) {
   var e = [];
   return r.eachSeriesByType("graph", function(a) {
     var n = a.get("coordinateSystem");
@@ -26811,7 +26811,7 @@ function i4(r, t) {
         return [+m.get("x"), +m.get("y")];
       }), s = [], l = [];
       Sv(o, s, l), l[0] - s[0] === 0 && (l[0] += 1, s[0] -= 1), l[1] - s[1] === 0 && (l[1] += 1, s[1] -= 1);
-      var u = (l[0] - s[0]) / (l[1] - s[1]), f = n4(a, t, u);
+      var u = (l[0] - s[0]) / (l[1] - s[1]), f = nH(a, t, u);
       isNaN(u) && (s = [f.x, f.y], l = [f.x + f.width, f.y + f.height]);
       var c = l[0] - s[0], v = l[1] - s[1], d = f.width, p = f.height, g = a.coordinateSystem = new Pu();
       g.zoomLimit = a.get("scaleLimit"), g.setBoundingRect(s[0], s[1], c, v), g.setViewRect(f.x, f.y, d, p), g.setCenter(a.get("center"), t), g.setZoom(a.get("zoom")), e.push(g);
@@ -26837,7 +26837,7 @@ var Qx = kt.prototype, kd = mu.prototype, YI = (
 function Od(r) {
   return isNaN(+r.cpx1) || isNaN(+r.cpy1);
 }
-var o4 = (
+var oH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -26879,8 +26879,8 @@ function tb(r, t, e) {
     return f.__specifiedRotation = i == null || isNaN(i) ? void 0 : +i * Math.PI / 180 || 0, f.name = r, f;
   }
 }
-function s4(r) {
-  var t = new o4({
+function sH(r) {
+  var t = new oH({
     name: "line",
     subPixelOptimize: !0
   });
@@ -26900,7 +26900,7 @@ var Um = (
       return i._createLine(e, a, n), i;
     }
     return t.prototype._createLine = function(e, a, n) {
-      var i = e.hostModel, o = e.getItemLayout(a), s = s4(o);
+      var i = e.hostModel, o = e.getItemLayout(a), s = sH(o);
       s.shape.percent = 0, ct(s, {
         shape: {
           percent: 1
@@ -27084,7 +27084,7 @@ var Um = (
     }, r.prototype.incrementalUpdate = function(t, e) {
       this._progressiveEls = [];
       function a(s) {
-        !s.isGroup && !l4(s) && (s.incremental = !0, s.ensureState("emphasis").hoverLayer = !0);
+        !s.isGroup && !lH(s) && (s.incremental = !0, s.ensureState("emphasis").hoverLayer = !0);
       }
       for (var n = t.start; n < t.end; n++) {
         var i = e.getItemLayout(n);
@@ -27113,7 +27113,7 @@ var Um = (
     }, r;
   }()
 );
-function l4(r) {
+function lH(r) {
   return r.animators && r.animators.length > 0;
 }
 function rb(r) {
@@ -27185,7 +27185,7 @@ function Wd(r, t) {
 function ob(r) {
   return r.type === "view";
 }
-var u4 = (
+var uH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -27305,7 +27305,7 @@ var u4 = (
 function No(r) {
   return "_EC_" + r;
 }
-var f4 = (
+var fH = (
   /** @class */
   function() {
     function r(t) {
@@ -27506,7 +27506,7 @@ function XI(r, t) {
 Mt(Di, XI("hostGraph", "data"));
 Mt(ZI, XI("hostGraph", "edgeData"));
 function qI(r, t, e, a, n) {
-  for (var i = new f4(a), o = 0; o < r.length; o++)
+  for (var i = new fH(a), o = 0; o < r.length; o++)
     i.addNode(Tt(
       // Id, name, dataIndex
       r[o].id,
@@ -27544,7 +27544,7 @@ function qI(r, t, e, a, n) {
     }
   }), i.update(), i;
 }
-var c4 = (
+var cH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -27709,15 +27709,15 @@ var c4 = (
       }
     }, t;
   }(lt)
-), v4 = {
+), vH = {
   type: "graphRoam",
   event: "graphRoam",
   update: "none"
 };
-function h4(r) {
-  r.registerChartView(u4), r.registerSeriesModel(c4), r.registerProcessor(Y3), r.registerVisual(Z3), r.registerVisual(X3), r.registerLayout(J3), r.registerLayout(r.PRIORITY.VISUAL.POST_CHART_LAYOUT, t4), r.registerLayout(a4), r.registerCoordinateSystem("graphView", {
+function hH(r) {
+  r.registerChartView(uH), r.registerSeriesModel(cH), r.registerProcessor(Y3), r.registerVisual(Z3), r.registerVisual(X3), r.registerLayout(J3), r.registerLayout(r.PRIORITY.VISUAL.POST_CHART_LAYOUT, tH), r.registerLayout(aH), r.registerCoordinateSystem("graphView", {
     dimensions: Pu.dimensions,
-    create: i4
+    create: iH
   }), r.registerAction({
     type: "focusNodeAdjacency",
     event: "focusNodeAdjacency",
@@ -27726,7 +27726,7 @@ function h4(r) {
     type: "unfocusNodeAdjacency",
     event: "unfocusNodeAdjacency",
     update: "series:unfocusNodeAdjacency"
-  }, St), r.registerAction(v4, function(t, e, a) {
+  }, St), r.registerAction(vH, function(t, e, a) {
     e.eachComponent({
       mainType: "series",
       query: t
@@ -27736,7 +27736,7 @@ function h4(r) {
     });
   });
 }
-var d4 = (
+var dH = (
   /** @class */
   /* @__PURE__ */ function() {
     function r() {
@@ -27744,7 +27744,7 @@ var d4 = (
     }
     return r;
   }()
-), p4 = (
+), pH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -27753,14 +27753,14 @@ var d4 = (
       return a.type = "pointer", a;
     }
     return t.prototype.getDefaultShape = function() {
-      return new d4();
+      return new dH();
     }, t.prototype.buildPath = function(e, a) {
       var n = Math.cos, i = Math.sin, o = a.r, s = a.width, l = a.angle, u = a.x - n(l) * s * (s >= o / 3 ? 1 : 2), f = a.y - i(l) * s * (s >= o / 3 ? 1 : 2);
       l = a.angle - Math.PI / 2, e.moveTo(u, f), e.lineTo(a.x + n(l) * s, a.y + i(l) * s), e.lineTo(a.x + n(a.angle) * o, a.y + i(a.angle) * o), e.lineTo(a.x - n(l) * s, a.y - i(l) * s), e.lineTo(u, f);
     }, t;
   }(ze)
 );
-function g4(r, t) {
+function gH(r, t) {
   var e = r.get("center"), a = t.getWidth(), n = t.getHeight(), i = Math.min(a, n), o = ne(e[0], t.getWidth()), s = ne(e[1], t.getHeight()), l = ne(r.get("radius"), i / 2);
   return {
     cx: o,
@@ -27772,7 +27772,7 @@ function Tf(r, t) {
   var e = r == null ? "" : r + "";
   return t && (ue(t) ? e = t.replace("{value}", e) : _e(t) && (e = t(r))), e;
 }
-var y4 = (
+var yH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -27782,7 +27782,7 @@ var y4 = (
     }
     return t.prototype.render = function(e, a, n) {
       this.group.removeAll();
-      var i = e.get(["axisLine", "lineStyle", "color"]), o = g4(e, n);
+      var i = e.get(["axisLine", "lineStyle", "color"]), o = gH(e, n);
       this._renderMain(e, a, n, i, o), this._data = e.getData();
     }, t.prototype.dispose = function() {
     }, t.prototype._renderMain = function(e, a, n, i, o) {
@@ -27897,7 +27897,7 @@ var y4 = (
       var c = this.group, v = this._data, d = this._progressEls, p = [], g = e.get(["pointer", "show"]), y = e.getModel("progress"), m = y.get("show"), _ = e.getData(), S = _.mapDimension("value"), x = +e.get("min"), b = +e.get("max"), w = [x, b], T = [s, l];
       function D(C, M) {
         var L = _.getItemModel(C), R = L.getModel("pointer"), E = ne(R.get("width"), o.r), P = ne(R.get("length"), o.r), N = e.get(["pointer", "icon"]), V = R.get("offsetCenter"), O = ne(V[0], o.r), F = ne(V[1], o.r), H = R.get("keepAspect"), Y;
-        return N ? Y = At(N, O - E / 2, F - P, E, P, null, H) : Y = new p4({
+        return N ? Y = At(N, O - E / 2, F - P, E, P, null, H) : Y = new pH({
           shape: {
             angle: -Math.PI / 2,
             width: E,
@@ -28038,7 +28038,7 @@ var y4 = (
       }), this.group.add(v), this._titleEls = d, this._detailEls = p;
     }, t.type = "gauge", t;
   }(nt)
-), m4 = (
+), mH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28174,10 +28174,10 @@ var y4 = (
     }, t;
   }(lt)
 );
-function _4(r) {
-  r.registerChartView(y4), r.registerSeriesModel(m4);
+function _H(r) {
+  r.registerChartView(yH), r.registerSeriesModel(mH);
 }
-var S4 = ["itemStyle", "opacity"], x4 = (
+var SH = ["itemStyle", "opacity"], xH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28186,7 +28186,7 @@ var S4 = ["itemStyle", "opacity"], x4 = (
       return i.setTextContent(s), n.setTextGuideLine(o), n.updateData(e, a, !0), n;
     }
     return t.prototype.updateData = function(e, a, n) {
-      var i = this, o = e.hostModel, s = e.getItemModel(a), l = e.getItemLayout(a), u = s.getModel("emphasis"), f = s.get(S4);
+      var i = this, o = e.hostModel, s = e.getItemModel(a), l = e.getItemLayout(a), u = s.getModel("emphasis"), f = s.get(SH);
       f = f ?? 1, n || ca(i), i.useStyle(e.getItemVisual(a, "style")), i.style.lineJoin = "round", n ? (i.setShape({
         points: l.points
       }), i.style.opacity = 0, ct(i, {
@@ -28247,7 +28247,7 @@ var S4 = ["itemStyle", "opacity"], x4 = (
       });
     }, t;
   }(vr)
-), b4 = (
+), bH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28258,7 +28258,7 @@ var S4 = ["itemStyle", "opacity"], x4 = (
     return t.prototype.render = function(e, a, n) {
       var i = e.getData(), o = this._data, s = this.group;
       i.diff(o).add(function(l) {
-        var u = new x4(i, l);
+        var u = new xH(i, l);
         i.setItemGraphicEl(l, u), s.add(u);
       }).update(function(l, u) {
         var f = o.getItemGraphicEl(u);
@@ -28272,7 +28272,7 @@ var S4 = ["itemStyle", "opacity"], x4 = (
     }, t.prototype.dispose = function() {
     }, t.type = "funnel", t;
   }(nt)
-), w4 = (
+), wH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28345,13 +28345,13 @@ var S4 = ["itemStyle", "opacity"], x4 = (
     }, t;
   }(lt)
 );
-function T4(r, t) {
+function TH(r, t) {
   return Et(r.getBoxLayoutParams(), {
     width: t.getWidth(),
     height: t.getHeight()
   });
 }
-function D4(r, t) {
+function DH(r, t) {
   for (var e = r.mapDimension("value"), a = r.mapArray(e, function(l) {
     return l;
   }), n = [], i = t === "ascending", o = 0, s = r.count(); o < s; o++)
@@ -28360,7 +28360,7 @@ function D4(r, t) {
     return i ? a[l] - a[u] : a[u] - a[l];
   }), n;
 }
-function C4(r) {
+function CH(r) {
   var t = r.hostModel, e = t.get("orient");
   r.each(function(a) {
     var n = r.getItemModel(a), i = n.getModel("label"), o = i.get("position"), s = n.getModel("labelLine"), l = r.getItemLayout(a), u = l.points, f = o === "inner" || o === "inside" || o === "center" || o === "insideLeft" || o === "insideRight", c, v, d, p;
@@ -28380,9 +28380,9 @@ function C4(r) {
     };
   });
 }
-function A4(r, t) {
+function AH(r, t) {
   r.eachSeriesByType("funnel", function(e) {
-    var a = e.getData(), n = a.mapDimension("value"), i = e.get("sort"), o = T4(e, t), s = e.get("orient"), l = o.width, u = o.height, f = D4(a, i), c = o.x, v = o.y, d = s === "horizontal" ? [ne(e.get("minSize"), u), ne(e.get("maxSize"), u)] : [ne(e.get("minSize"), l), ne(e.get("maxSize"), l)], p = a.getDataExtent(n), g = e.get("min"), y = e.get("max");
+    var a = e.getData(), n = a.mapDimension("value"), i = e.get("sort"), o = TH(e, t), s = e.get("orient"), l = o.width, u = o.height, f = DH(a, i), c = o.x, v = o.y, d = s === "horizontal" ? [ne(e.get("minSize"), u), ne(e.get("maxSize"), u)] : [ne(e.get("minSize"), l), ne(e.get("maxSize"), l)], p = a.getDataExtent(n), g = e.get("min"), y = e.get("max");
     g == null && (g = Math.min(p[0], 0)), y == null && (y = p[1]);
     var m = e.get("funnelAlign"), _ = e.get("gap"), S = s === "horizontal" ? l : u, x = (S - _ * (a.count() - 1)) / a.count(), b = function(E, P) {
       if (s === "horizontal") {
@@ -28433,13 +28433,13 @@ function A4(r, t) {
         });
       }
     }
-    C4(a);
+    CH(a);
   });
 }
-function M4(r) {
-  r.registerChartView(b4), r.registerSeriesModel(w4), r.registerLayout(A4), r.registerProcessor(Iu("funnel"));
+function MH(r) {
+  r.registerChartView(bH), r.registerSeriesModel(wH), r.registerLayout(AH), r.registerProcessor(Iu("funnel"));
 }
-var I4 = 0.3, L4 = (
+var IH = 0.3, LH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28471,7 +28471,7 @@ var I4 = 0.3, L4 = (
       }
       if (!this._initialized) {
         this._initialized = !0;
-        var g = E4(u, e, function() {
+        var g = EH(u, e, function() {
           setTimeout(function() {
             o.removeClipPath();
           });
@@ -28491,7 +28491,7 @@ var I4 = 0.3, L4 = (
     }, t.type = "parallel", t;
   }(nt)
 );
-function E4(r, t, e) {
+function EH(r, t, e) {
   var a = r.model, n = r.getRect(), i = new $e({
     shape: {
       x: n.x,
@@ -28510,7 +28510,7 @@ function E4(r, t, e) {
 function KI(r, t, e, a) {
   for (var n = [], i = 0; i < e.length; i++) {
     var o = e[i], s = r.get(r.mapDimension(o), t);
-    P4(s, a.getAxis(o).type) || n.push(a.dataToPoint(s, o));
+    PH(s, a.getAxis(o).type) || n.push(a.dataToPoint(s, o));
   }
   return n;
 }
@@ -28526,7 +28526,7 @@ function sb(r, t, e, a, n) {
 }
 function lb(r) {
   var t = r.get("smooth", !0);
-  return t === !0 && (t = I4), t = en(t), ji(t) && (t = 0), {
+  return t === !0 && (t = IH), t = en(t), ji(t) && (t = 0), {
     smooth: t
   };
 }
@@ -28535,10 +28535,10 @@ function $d(r, t, e, a) {
   var n = t.getItemModel(e), i = n.getModel("emphasis");
   Yt(r, n, "lineStyle"), pt(r, i.get("focus"), i.get("blurScope"), i.get("disabled"));
 }
-function P4(r, t) {
+function PH(r, t) {
   return t === "category" ? r == null : r == null || isNaN(r);
 }
-var R4 = (
+var RH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28548,7 +28548,7 @@ var R4 = (
     }
     return t.prototype.getInitialData = function(e, a) {
       return vn(null, this, {
-        useEncodeDefaulter: ce(N4, null, this)
+        useEncodeDefaulter: ce(NH, null, this)
       });
     }, t.prototype.getRawIndicesByActiveState = function(e) {
       var a = this.coordinateSystem, n = this.getData(), i = [];
@@ -28581,20 +28581,20 @@ var R4 = (
     }, t;
   }(lt)
 );
-function N4(r) {
+function NH(r) {
   var t = r.ecModel.getComponent("parallel", r.get("parallelIndex"));
   if (t) {
     var e = {};
     return I(t.dimensions, function(a) {
-      var n = k4(a);
+      var n = kH(a);
       e[a] = n;
     }), e;
   }
 }
-function k4(r) {
+function kH(r) {
   return +r.replace("dim", "");
 }
-var O4 = ["lineStyle", "opacity"], V4 = {
+var OH = ["lineStyle", "opacity"], VH = {
   seriesType: "parallel",
   reset: function(r, t) {
     var e = r.coordinateSystem, a = {
@@ -28607,7 +28607,7 @@ var O4 = ["lineStyle", "opacity"], V4 = {
         e.eachActiveState(i, function(o, s) {
           var l = a[o];
           if (o === "normal" && i.hasItemOption) {
-            var u = i.getItemModel(s).get(O4, !0);
+            var u = i.getItemModel(s).get(OH, !0);
             u != null && (l = u);
           }
           var f = i.ensureUniqueItemVisual(s, "style");
@@ -28617,10 +28617,10 @@ var O4 = ["lineStyle", "opacity"], V4 = {
     };
   }
 };
-function B4(r) {
-  z4(r), F4(r);
+function BH(r) {
+  zH(r), FH(r);
 }
-function z4(r) {
+function zH(r) {
   if (!r.parallel) {
     var t = !1;
     I(r.series, function(e) {
@@ -28628,7 +28628,7 @@ function z4(r) {
     }), t && (r.parallel = [{}]);
   }
 }
-function F4(r) {
+function FH(r) {
   var t = at(r.parallelAxis);
   I(t, function(e) {
     if (xe(e)) {
@@ -28637,7 +28637,7 @@ function F4(r) {
     }
   });
 }
-var G4 = 5, H4 = (
+var GH = 5, HH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28646,7 +28646,7 @@ var G4 = 5, H4 = (
       return e.type = t.type, e;
     }
     return t.prototype.render = function(e, a, n) {
-      this._model = e, this._api = n, this._handlers || (this._handlers = {}, I(W4, function(i, o) {
+      this._model = e, this._api = n, this._handlers || (this._handlers = {}, I(WH, function(i, o) {
         n.getZr().on(o, this._handlers[o] = ce(i, this));
       }, this)), Cs(this, "_throttledDispatchExpand", e.get("axisExpandRate"), "fixRate");
     }, t.prototype.dispose = function(e, a) {
@@ -28661,7 +28661,7 @@ var G4 = 5, H4 = (
       }, e));
     }, t.type = "parallel", t;
   }(ht)
-), W4 = {
+), WH = {
   mousedown: function(r) {
     Ud(this, "click") && (this._mouseDownPoint = [r.offsetX, r.offsetY]);
   },
@@ -28669,7 +28669,7 @@ var G4 = 5, H4 = (
     var t = this._mouseDownPoint;
     if (Ud(this, "click") && t) {
       var e = [r.offsetX, r.offsetY], a = Math.pow(t[0] - e[0], 2) + Math.pow(t[1] - e[1], 2);
-      if (a > G4)
+      if (a > GH)
         return;
       var n = this._model.coordinateSystem.getSlidedAxisExpandWindow([r.offsetX, r.offsetY]);
       n.behavior !== "none" && this._dispatchExpand({
@@ -28696,7 +28696,7 @@ function Ud(r, t) {
   var e = r._model;
   return e.get("axisExpandable") && e.get("axisExpandTriggerOn") === t;
 }
-var $4 = (
+var $H = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28750,7 +28750,7 @@ var $4 = (
       parallelAxisDefault: null
     }, t;
   }(Fe)
-), U4 = (
+), UH = (
   /** @class */
   function(r) {
     W(t, r);
@@ -28788,7 +28788,7 @@ function Yd(r, t) {
 function ko(r, t) {
   return Math.min(t[1] != null ? t[1] : 1 / 0, Math.max(t[0] != null ? t[0] : -1 / 0, r));
 }
-var Zd = I, jI = Math.min, QI = Math.max, ub = Math.floor, Y4 = Math.ceil, fb = yt, Z4 = Math.PI, X4 = (
+var Zd = I, jI = Math.min, QI = Math.max, ub = Math.floor, YH = Math.ceil, fb = yt, ZH = Math.PI, XH = (
   /** @class */
   function() {
     function r(t, e, a) {
@@ -28797,7 +28797,7 @@ var Zd = I, jI = Math.min, QI = Math.max, ub = Math.floor, Y4 = Math.ceil, fb = 
     return r.prototype._init = function(t, e, a) {
       var n = t.dimensions, i = t.parallelAxisIndex;
       Zd(n, function(o, s) {
-        var l = i[s], u = e.getComponent("parallelAxis", l), f = this._axesMap.set(o, new U4(o, Hv(u), [0, 0], u.get("type"), l)), c = f.type === "category";
+        var l = i[s], u = e.getComponent("parallelAxis", l), f = this._axesMap.set(o, new UH(o, Hv(u), [0, 0], u.get("type"), l)), c = f.type === "category";
         f.onBand = c && u.get("boundaryGap"), f.inverse = u.get("inverse"), u.axis = f, f.model = u, f.coordinateSystem = u.coordinateSystem = this;
       }, this);
     }, r.prototype.update = function(t, e) {
@@ -28835,7 +28835,7 @@ var Zd = I, jI = Math.min, QI = Math.max, ub = Math.floor, Y4 = Math.ceil, fb = 
       }
       var y = (s - p) / (u - c);
       y < 3 && (y = 0);
-      var m = [ub(fb(d[0] / f, 1)) + 1, Y4(fb(d[1] / f, 1)) - 1], _ = y / f * d[0];
+      var m = [ub(fb(d[0] / f, 1)) + 1, YH(fb(d[1] / f, 1)) - 1], _ = y / f * d[0];
       return {
         layout: i,
         pixelDimIndex: o,
@@ -28857,7 +28857,7 @@ var Zd = I, jI = Math.min, QI = Math.max, ub = Math.floor, Y4 = Math.ceil, fb = 
         var s = [0, n.axisLength], l = o.inverse ? 1 : 0;
         o.setExtent(s[l], s[1 - l]);
       }), Zd(a, function(o, s) {
-        var l = (n.axisExpandable ? K4 : q4)(s, n), u = {
+        var l = (n.axisExpandable ? KH : qH)(s, n), u = {
           horizontal: {
             x: l.position,
             y: n.axisLength
@@ -28867,7 +28867,7 @@ var Zd = I, jI = Math.min, QI = Math.max, ub = Math.floor, Y4 = Math.ceil, fb = 
             y: l.position
           }
         }, f = {
-          horizontal: Z4 / 2,
+          horizontal: ZH / 2,
           vertical: 0
         }, c = [u[i].x + t.x, u[i].y + t.y], v = f[i], d = wr();
         so(d, d, v), Pa(d, d, c), this._axesLayout[o] = {
@@ -28940,7 +28940,7 @@ var Zd = I, jI = Math.min, QI = Math.max, ub = Math.floor, Y4 = Math.ceil, fb = 
 function Df(r, t) {
   return jI(QI(r, t[0]), t[1]);
 }
-function q4(r, t) {
+function qH(r, t) {
   var e = t.layoutLength / (t.axisCount - 1);
   return {
     position: e * r,
@@ -28948,7 +28948,7 @@ function q4(r, t) {
     axisLabelShow: !0
   };
 }
-function K4(r, t) {
+function KH(r, t) {
   var e = t.layoutLength, a = t.axisExpandWidth, n = t.axisCount, i = t.axisCollapseWidth, o = t.winInnerIndices, s, l = i, u = !1, f;
   return r < o[0] ? (s = r * i, f = i) : r <= o[1] ? (s = t.axisExpandWindow0Pos + r * a - t.axisExpandWindow[0], l = a, u = !0) : (s = e - (n - 1 - r) * i, f = i), {
     position: s,
@@ -28957,10 +28957,10 @@ function K4(r, t) {
     nameTruncateMaxWidth: f
   };
 }
-function j4(r, t) {
+function jH(r, t) {
   var e = [];
   return r.eachComponent("parallel", function(a, n) {
-    var i = new X4(a, r, t);
+    var i = new XH(a, r, t);
     i.name = "parallel_" + n, i.resize(a, t), a.coordinateSystem = i, i.model = a, e.push(i);
   }), r.eachSeries(function(a) {
     if (a.get("coordinateSystem") === "parallel") {
@@ -28969,8 +28969,8 @@ function j4(r, t) {
     }
   }), e;
 }
-var Q4 = {
-  create: j4
+var QH = {
+  create: jH
 }, Ug = (
   /** @class */
   function(r) {
@@ -29013,12 +29013,12 @@ var Q4 = {
   }(Fe)
 );
 Mt(Ug, Tu);
-var ao = !0, lu = Math.min, fs = Math.max, J4 = Math.pow, eH = 1e4, tH = 6, rH = 6, cb = "globalPan", aH = {
+var ao = !0, lu = Math.min, fs = Math.max, JH = Math.pow, e4 = 1e4, t4 = 6, r4 = 6, cb = "globalPan", a4 = {
   w: [0, 0],
   e: [0, 1],
   n: [1, 0],
   s: [1, 1]
-}, nH = {
+}, n4 = {
   w: "ew",
   e: "ew",
   n: "ns",
@@ -29036,13 +29036,13 @@ var ao = !0, lu = Math.min, fs = Math.max, J4 = Math.pow, eH = 1e4, tH = 6, rH =
   transformable: !0,
   brushMode: "single",
   removeOnClick: !1
-}, iH = 0, Zm = (
+}, i4 = 0, Zm = (
   /** @class */
   function(r) {
     W(t, r);
     function t(e) {
       var a = r.call(this) || this;
-      return a._track = [], a._covers = [], a._handlers = {}, process.env.NODE_ENV !== "production" && be(e), a._zr = e, a.group = new De(), a._uid = "brushController_" + iH++, I(vH, function(n, i) {
+      return a._track = [], a._covers = [], a._handlers = {}, process.env.NODE_ENV !== "production" && be(e), a._zr = e, a.group = new De(), a._uid = "brushController_" + i4++, I(v4, function(n, i) {
         this._handlers[i] = ce(n, this);
       }, a), a;
     }
@@ -29123,7 +29123,7 @@ function t2(r, t) {
 }
 function r2(r, t) {
   var e = t.z;
-  e == null && (e = eH), r.traverse(function(a) {
+  e == null && (e = e4), r.traverse(function(a) {
     a.z = e, a.z2 = e;
   });
 }
@@ -29170,12 +29170,12 @@ function no(r, t) {
     removeOnClick: !!t.removeOnClick
   });
 }
-function oH(r) {
+function o4(r) {
   var t = r._track;
   if (!t.length)
     return !1;
-  var e = t[t.length - 1], a = t[0], n = e[0] - a[0], i = e[1] - a[1], o = J4(n * n + i * i, 0.5);
-  return o > tH;
+  var e = t[t.length - 1], a = t[0], n = e[0] - a[0], i = e[1] - a[1], o = JH(n * n + i * i, 0.5);
+  return o > t4;
 }
 function n2(r) {
   var t = r.length - 1;
@@ -29210,7 +29210,7 @@ function i2(r, t, e, a) {
   }), n;
 }
 function o2(r, t, e, a) {
-  var n = a.brushStyle.lineWidth || 0, i = fs(n, rH), o = e[0][0], s = e[1][0], l = o - n / 2, u = s - n / 2, f = e[0][1], c = e[1][1], v = f - i + n / 2, d = c - i + n / 2, p = f - o, g = c - s, y = p + n, m = g + n;
+  var n = a.brushStyle.lineWidth || 0, i = fs(n, r4), o = e[0][0], s = e[1][0], l = o - n / 2, u = s - n / 2, f = e[0][1], c = e[1][1], v = f - i + n / 2, d = c - i + n / 2, p = f - o, g = c - s, y = p + n, m = g + n;
   Ha(r, t, "main", o, s, p, g), a.transformable && (Ha(r, t, "w", l, u, i, m), Ha(r, t, "e", v, u, i, m), Ha(r, t, "n", l, u, y, i), Ha(r, t, "s", l, d, y, i), Ha(r, t, "nw", l, u, i, i), Ha(r, t, "ne", v, u, i, i), Ha(r, t, "sw", l, d, i, i), Ha(r, t, "se", v, d, i, i));
 }
 function Zg(r, t) {
@@ -29219,17 +29219,17 @@ function Zg(r, t) {
     silent: !a,
     cursor: a ? "move" : "default"
   }), I([["w"], ["e"], ["n"], ["s"], ["s", "e"], ["s", "w"], ["n", "e"], ["n", "w"]], function(i) {
-    var o = t.childOfName(i.join("")), s = i.length === 1 ? Xg(r, i[0]) : lH(r, i);
+    var o = t.childOfName(i.join("")), s = i.length === 1 ? Xg(r, i[0]) : l4(r, i);
     o && o.attr({
       silent: !a,
       invisible: !a,
-      cursor: a ? nH[s] + "-resize" : null
+      cursor: a ? n4[s] + "-resize" : null
     });
   });
 }
 function Ha(r, t, e, a, n, i, o) {
   var s = t.childOfName(e);
-  s && s.setShape(fH(Qm(r, t, [[a, n], [a + i, n + o]])));
+  s && s.setShape(f4(Qm(r, t, [[a, n], [a + i, n + o]])));
 }
 function jm(r) {
   return we({
@@ -29244,7 +29244,7 @@ function s2(r, t, e, a) {
     // y range
   ];
 }
-function sH(r) {
+function s4(r) {
   return $i(r.group);
 }
 function Xg(r, t) {
@@ -29258,23 +29258,23 @@ function Xg(r, t) {
     right: "e",
     top: "n",
     bottom: "s"
-  }, n = Cv(e[t], sH(r));
+  }, n = Cv(e[t], s4(r));
   return a[n];
 }
-function lH(r, t) {
+function l4(r, t) {
   var e = [Xg(r, t[0]), Xg(r, t[1])];
   return (e[0] === "e" || e[0] === "w") && e.reverse(), e.join("");
 }
 function hb(r, t, e, a, n, i) {
   var o = e.__brushOption, s = r.toRectRange(o.range), l = l2(t, n, i);
   I(a, function(u) {
-    var f = aH[u];
+    var f = a4[u];
     s[f[0]][f[1]] += l[f[0]];
   }), o.range = r.fromRectRange(s2(s[0][0], s[1][0], s[0][1], s[1][1])), Xm(t, e), no(t, {
     isEnd: !1
   });
 }
-function uH(r, t, e, a) {
+function u4(r, t, e, a) {
   var n = t.__brushOption.range, i = l2(r, e, a);
   I(n, function(o) {
     o[0] += i[0], o[1] += i[1];
@@ -29290,7 +29290,7 @@ function Qm(r, t, e) {
   var a = a2(r, t);
   return a && a !== ao ? a.clipPath(e, r._transform) : Te(e);
 }
-function fH(r) {
+function f4(r) {
   var t = lu(r[0][0], r[1][0]), e = lu(r[0][1], r[1][1]), a = fs(r[0][0], r[1][0]), n = fs(r[0][1], r[1][1]);
   return {
     x: t,
@@ -29299,10 +29299,10 @@ function fH(r) {
     height: n - e
   };
 }
-function cH(r, t, e) {
+function c4(r, t, e) {
   if (
     // Check active
-    !(!r._brushType || hH(r, t.offsetX, t.offsetY))
+    !(!r._brushType || h4(r, t.offsetX, t.offsetY))
   ) {
     var a = r._zr, n = r._covers, i = Km(r, t, e);
     if (!r._dragging)
@@ -29323,7 +29323,7 @@ function Kg(r, t, e) {
 }
 function u2(r, t, e, a) {
   var n = r._creatingCover, i = r._creatingPanel, o = r._brushOption, s;
-  if (r._track.push(e.slice()), oH(r) || n) {
+  if (r._track.push(e.slice()), o4(r) || n) {
     if (i && !n) {
       o.brushMode === "single" && Yg(r);
       var l = Te(o);
@@ -29344,7 +29344,7 @@ function u2(r, t, e, a) {
 function db(r, t) {
   return r === "auto" ? (process.env.NODE_ENV !== "production" && be(t && t.defaultBrushType, 'MUST have defaultBrushType when brushType is "atuo"'), t.defaultBrushType) : r;
 }
-var vH = {
+var v4 = {
   mousedown: function(r) {
     if (this._dragging)
       pb(this, r);
@@ -29358,7 +29358,7 @@ var vH = {
   },
   mousemove: function(r) {
     var t = r.offsetX, e = r.offsetY, a = this.group.transformCoordToLocal(t, e);
-    if (cH(this, r, a), this._dragging) {
+    if (c4(this, r, a), this._dragging) {
       qg(r);
       var n = u2(this, r, a, !1);
       n && no(this, n);
@@ -29375,7 +29375,7 @@ function pb(r, t) {
     r._dragging = !1, r._track = [], r._creatingCover = null, i && no(r, i);
   }
 }
-function hH(r, t, e) {
+function h4(r, t, e) {
   var a = r._zr;
   return t < 0 || t > a.getWidth() || e < 0 || e > a.getHeight();
 }
@@ -29418,7 +29418,7 @@ var Xv = {
       t.remove(t.childAt(0)), t.add(new vr({
         name: "main",
         draggable: !0,
-        drift: Ie(uH, r, t),
+        drift: Ie(u4, r, t),
         ondragend: Ie(no, r, {
           isEnd: !0
         })
@@ -29485,7 +29485,7 @@ function v2(r, t, e) {
 function Jm(r) {
   return Ne.create(r);
 }
-var dH = ["axisLine", "axisTickLabel", "axisName"], pH = (
+var d4 = ["axisLine", "axisTickLabel", "axisName"], p4 = (
   /** @class */
   function(r) {
     W(t, r);
@@ -29496,14 +29496,14 @@ var dH = ["axisLine", "axisTickLabel", "axisName"], pH = (
     return t.prototype.init = function(e, a) {
       r.prototype.init.apply(this, arguments), (this._brushController = new Zm(a.getZr())).on("brush", ce(this._onBrush, this));
     }, t.prototype.render = function(e, a, n, i) {
-      if (!gH(e, a, i)) {
+      if (!g4(e, a, i)) {
         this.axisModel = e, this.api = n, this.group.removeAll();
         var o = this._axisGroup;
         if (this._axisGroup = new De(), this.group.add(this._axisGroup), !!e.get("show")) {
-          var s = mH(e, a), l = s.coordinateSystem, u = e.getAreaSelectStyle(), f = u.width, c = e.axis.dim, v = l.getAxisLayout(c), d = Z({
+          var s = m4(e, a), l = s.coordinateSystem, u = e.getAreaSelectStyle(), f = u.width, c = e.axis.dim, v = l.getAxisLayout(c), d = Z({
             strokeContainThreshold: f
           }, v), p = new sr(e, d);
-          I(dH, p.add, p), this._axisGroup.add(p.getGroup()), this._refreshBrushController(d, u, e, s, f, n), Su(o, this._axisGroup, e);
+          I(d4, p.add, p), this._axisGroup.add(p.getGroup()), this._refreshBrushController(d, u, e, s, f, n), Su(o, this._axisGroup, e);
         }
       }
     }, t.prototype._refreshBrushController = function(e, a, n, i, o, s) {
@@ -29527,7 +29527,7 @@ var dH = ["axisLine", "axisTickLabel", "axisName"], pH = (
         brushType: "lineX",
         brushStyle: a,
         removeOnClick: !0
-      }).updateCovers(yH(n));
+      }).updateCovers(y4(n));
     }, t.prototype._onBrush = function(e) {
       var a = e.areas, n = this.axisModel, i = n.axis, o = K(a, function(s) {
         return [i.coordToData(s.range[0], !0), i.coordToData(s.range[1], !0)];
@@ -29542,13 +29542,13 @@ var dH = ["axisLine", "axisTickLabel", "axisName"], pH = (
     }, t.type = "parallelAxis", t;
   }(ht)
 );
-function gH(r, t, e) {
+function g4(r, t, e) {
   return e && e.type === "axisAreaSelect" && t.findComponents({
     mainType: "parallelAxis",
     query: e
   })[0] === r;
 }
-function yH(r) {
+function y4(r) {
   var t = r.axis;
   return K(r.activeIntervals, function(e) {
     return {
@@ -29558,16 +29558,16 @@ function yH(r) {
     };
   });
 }
-function mH(r, t) {
+function m4(r, t) {
   return t.getComponent("parallel", r.get("parallelIndex"));
 }
-var _H = {
+var _4 = {
   type: "axisAreaSelect",
   event: "axisAreaSelected"
   // update: 'updateVisual'
 };
-function SH(r) {
-  r.registerAction(_H, function(t, e) {
+function S4(r) {
+  r.registerAction(_4, function(t, e) {
     e.eachComponent({
       mainType: "parallelAxis",
       query: t
@@ -29583,7 +29583,7 @@ function SH(r) {
     });
   });
 }
-var xH = {
+var x4 = {
   type: "value",
   areaSelectStyle: {
     width: 20,
@@ -29596,12 +29596,12 @@ var xH = {
   z: 10
 };
 function h2(r) {
-  r.registerComponentView(H4), r.registerComponentModel($4), r.registerCoordinateSystem("parallel", Q4), r.registerPreprocessor(B4), r.registerComponentModel(Ug), r.registerComponentView(pH), us(r, "parallel", Ug, xH), SH(r);
+  r.registerComponentView(HH), r.registerComponentModel($H), r.registerCoordinateSystem("parallel", QH), r.registerPreprocessor(BH), r.registerComponentModel(Ug), r.registerComponentView(p4), us(r, "parallel", Ug, x4), S4(r);
 }
-function bH(r) {
-  Ve(h2), r.registerChartView(L4), r.registerSeriesModel(R4), r.registerVisual(r.PRIORITY.VISUAL.BRUSH, V4);
+function b4(r) {
+  Ve(h2), r.registerChartView(LH), r.registerSeriesModel(RH), r.registerVisual(r.PRIORITY.VISUAL.BRUSH, VH);
 }
-var wH = (
+var w4 = (
   /** @class */
   /* @__PURE__ */ function() {
     function r() {
@@ -29609,7 +29609,7 @@ var wH = (
     }
     return r;
   }()
-), TH = (
+), T4 = (
   /** @class */
   function(r) {
     W(t, r);
@@ -29617,7 +29617,7 @@ var wH = (
       return r.call(this, e) || this;
     }
     return t.prototype.getDefaultShape = function() {
-      return new wH();
+      return new w4();
     }, t.prototype.buildPath = function(e, a) {
       var n = a.extent;
       e.moveTo(a.x1, a.y1), e.bezierCurveTo(a.cpx1, a.cpy1, a.cpx2, a.cpy2, a.x2, a.y2), a.orient === "vertical" ? (e.lineTo(a.x2 + n, a.y2), e.bezierCurveTo(a.cpx2 + n, a.cpy2, a.cpx1 + n, a.cpy1, a.x1 + n, a.y1)) : (e.lineTo(a.x2, a.y2 + n), e.bezierCurveTo(a.cpx2, a.cpy2 + n, a.cpx1, a.cpy1 + n, a.x1, a.y1 + n)), e.closePath();
@@ -29627,7 +29627,7 @@ var wH = (
       rn(this);
     }, t;
   }(ze)
-), DH = (
+), D4 = (
   /** @class */
   function(r) {
     W(t, r);
@@ -29638,7 +29638,7 @@ var wH = (
     return t.prototype.render = function(e, a, n) {
       var i = this, o = e.getGraph(), s = this.group, l = e.layoutInfo, u = l.width, f = l.height, c = e.getData(), v = e.getData("edge"), d = e.get("orient");
       this._model = e, s.removeAll(), s.x = l.x, s.y = l.y, o.eachEdge(function(p) {
-        var g = new TH(), y = Ae(g);
+        var g = new T4(), y = Ae(g);
         y.dataIndex = p.dataIndex, y.seriesIndex = e.seriesIndex, y.dataType = "edge";
         var m = p.getModel(), _ = m.getModel("lineStyle"), S = _.get("curveness"), x = p.node1.getLayout(), b = p.node1.getModel(), w = b.get("localX"), T = b.get("localY"), D = p.node2.getLayout(), A = p.node2.getModel(), C = A.get("localX"), M = A.get("localY"), L = p.getLayout(), R, E, P, N, V, O, F, H;
         g.shape.extent = Math.max(1, L.dy), g.shape.orient = d, d === "vertical" ? (R = (w != null ? w * u : x.x) + L.sy, E = (T != null ? T * f : x.y) + x.dy, P = (C != null ? C * u : D.x) + L.ty, N = M != null ? M * f : D.y, V = R, O = E * (1 - S) + N * S, F = P, H = E * S + N * (1 - S)) : (R = (w != null ? w * u : x.x) + x.dx, E = (T != null ? T * f : x.y) + L.sy, P = C != null ? C * u : D.x, N = (M != null ? M * f : D.y) + L.ty, V = R * (1 - S) + P * S, O = E, F = R * S + P * (1 - S), H = N), g.setShape({
@@ -29715,7 +29715,7 @@ var wH = (
         }, p.ondragend = function() {
           i._focusAdjacencyDisabled = !1;
         }, p.draggable = !0, p.cursor = "move");
-      }), !this._data && e.isAnimationEnabled() && s.setClipPath(CH(s.getBoundingRect(), e, function() {
+      }), !this._data && e.isAnimationEnabled() && s.setClipPath(C4(s.getBoundingRect(), e, function() {
         s.removeClipPath();
       })), this._data = e.getData();
     }, t.prototype.dispose = function() {
@@ -29741,7 +29741,7 @@ function yb(r, t, e) {
       }]));
   }
 }
-function CH(r, t, e) {
+function C4(r, t, e) {
   var a = new $e({
     shape: {
       x: r.x - 10,
@@ -29756,7 +29756,7 @@ function CH(r, t, e) {
     }
   }, t, e), a;
 }
-var AH = (
+var A4 = (
   /** @class */
   function(r) {
     W(t, r);
@@ -29872,28 +29872,28 @@ var AH = (
     }, t;
   }(lt)
 );
-function MH(r, t) {
+function M4(r, t) {
   r.eachSeriesByType("sankey", function(e) {
-    var a = e.get("nodeWidth"), n = e.get("nodeGap"), i = IH(e, t);
+    var a = e.get("nodeWidth"), n = e.get("nodeGap"), i = I4(e, t);
     e.layoutInfo = i;
     var o = i.width, s = i.height, l = e.getGraph(), u = l.nodes, f = l.edges;
-    EH(u);
+    E4(u);
     var c = Qe(u, function(g) {
       return g.getLayout().value === 0;
     }), v = c.length !== 0 ? 0 : e.get("layoutIterations"), d = e.get("orient"), p = e.get("nodeAlign");
-    LH(u, f, a, n, o, s, v, d, p);
+    L4(u, f, a, n, o, s, v, d, p);
   });
 }
-function IH(r, t) {
+function I4(r, t) {
   return Et(r.getBoxLayoutParams(), {
     width: t.getWidth(),
     height: t.getHeight()
   });
 }
-function LH(r, t, e, a, n, i, o, s, l) {
-  PH(r, t, e, n, i, s, l), OH(r, t, i, n, a, o, s), UH(r, s);
+function L4(r, t, e, a, n, i, o, s, l) {
+  P4(r, t, e, n, i, s, l), O4(r, t, i, n, a, o, s), U4(r, s);
 }
-function EH(r) {
+function E4(r) {
   I(r, function(t) {
     var e = Bn(t.outEdges, Yc), a = Bn(t.inEdges, Yc), n = t.getValue() || 0, i = Math.max(e, a, n);
     t.setLayout({
@@ -29901,7 +29901,7 @@ function EH(r) {
     }, !0);
   });
 }
-function PH(r, t, e, a, n, i, o) {
+function P4(r, t, e, a, n, i, o) {
   for (var s = [], l = [], u = [], f = [], c = 0, v = 0; v < t.length; v++)
     s[v] = 1;
   for (var v = 0; v < r.length; v++)
@@ -29929,15 +29929,15 @@ function PH(r, t, e, a, n, i, o) {
     if (s[v] === 1)
       throw new Error("Sankey is a DAG, the original data has cycle!");
   var T = d > c - 1 ? d : c - 1;
-  o && o !== "left" && RH(r, o, i, T);
+  o && o !== "left" && R4(r, o, i, T);
   var D = i === "vertical" ? (n - e) / T : (a - e) / T;
-  kH(r, D, i);
+  k4(r, D, i);
 }
 function d2(r) {
   var t = r.hostGraph.data.getRawDataItem(r.dataIndex);
   return t.depth != null && t.depth >= 0;
 }
-function RH(r, t, e, a) {
+function R4(r, t, e, a) {
   if (t === "right") {
     for (var n = [], i = r, o = 0; i.length; ) {
       for (var s = 0; s < i.length; s++) {
@@ -29957,16 +29957,16 @@ function RH(r, t, e, a) {
         depth: Math.max(0, a - c.getLayout().skNodeHeight)
       }, !0);
     });
-  } else t === "justify" && NH(r, a);
+  } else t === "justify" && N4(r, a);
 }
-function NH(r, t) {
+function N4(r, t) {
   I(r, function(e) {
     !d2(e) && !e.outEdges.length && e.setLayout({
       depth: t
     }, !0);
   });
 }
-function kH(r, t, e) {
+function k4(r, t, e) {
   I(r, function(a) {
     var n = a.getLayout().depth * t;
     e === "vertical" ? a.setLayout({
@@ -29976,13 +29976,13 @@ function kH(r, t, e) {
     }, !0);
   });
 }
-function OH(r, t, e, a, n, i, o) {
-  var s = VH(r, o);
-  BH(s, t, e, a, n, o), Xd(s, n, e, a, o);
+function O4(r, t, e, a, n, i, o) {
+  var s = V4(r, o);
+  B4(s, t, e, a, n, o), Xd(s, n, e, a, o);
   for (var l = 1; i > 0; i--)
-    l *= 0.99, zH(s, l, o), Xd(s, n, e, a, o), $H(s, l, o), Xd(s, n, e, a, o);
+    l *= 0.99, z4(s, l, o), Xd(s, n, e, a, o), $4(s, l, o), Xd(s, n, e, a, o);
 }
-function VH(r, t) {
+function V4(r, t) {
   var e = [], a = t === "vertical" ? "y" : "x", n = Kp(r, function(i) {
     return i.getLayout()[a];
   });
@@ -29992,7 +29992,7 @@ function VH(r, t) {
     e.push(n.buckets.get(i));
   }), e;
 }
-function BH(r, t, e, a, n, i) {
+function B4(r, t, e, a, n, i) {
   var o = 1 / 0;
   I(r, function(s) {
     var l = s.length, u = 0;
@@ -30049,14 +30049,14 @@ function Xd(r, t, e, a, n) {
     }
   });
 }
-function zH(r, t, e) {
+function z4(r, t, e) {
   I(r.slice().reverse(), function(a) {
     I(a, function(n) {
       if (n.outEdges.length) {
-        var i = Bn(n.outEdges, FH, e) / Bn(n.outEdges, Yc);
+        var i = Bn(n.outEdges, F4, e) / Bn(n.outEdges, Yc);
         if (isNaN(i)) {
           var o = n.outEdges.length;
-          i = o ? Bn(n.outEdges, GH, e) / o : 0;
+          i = o ? Bn(n.outEdges, G4, e) / o : 0;
         }
         if (e === "vertical") {
           var s = n.getLayout().x + (i - Zn(n, e)) * t;
@@ -30073,16 +30073,16 @@ function zH(r, t, e) {
     });
   });
 }
-function FH(r, t) {
+function F4(r, t) {
   return Zn(r.node2, t) * r.getValue();
 }
-function GH(r, t) {
+function G4(r, t) {
   return Zn(r.node2, t);
 }
-function HH(r, t) {
+function H4(r, t) {
   return Zn(r.node1, t) * r.getValue();
 }
-function WH(r, t) {
+function W4(r, t) {
   return Zn(r.node1, t);
 }
 function Zn(r, t) {
@@ -30098,14 +30098,14 @@ function Bn(r, t, e) {
   }
   return a;
 }
-function $H(r, t, e) {
+function $4(r, t, e) {
   I(r, function(a) {
     I(a, function(n) {
       if (n.inEdges.length) {
-        var i = Bn(n.inEdges, HH, e) / Bn(n.inEdges, Yc);
+        var i = Bn(n.inEdges, H4, e) / Bn(n.inEdges, Yc);
         if (isNaN(i)) {
           var o = n.inEdges.length;
-          i = o ? Bn(n.inEdges, WH, e) / o : 0;
+          i = o ? Bn(n.inEdges, W4, e) / o : 0;
         }
         if (e === "vertical") {
           var s = n.getLayout().x + (i - Zn(n, e)) * t;
@@ -30122,7 +30122,7 @@ function $H(r, t, e) {
     });
   });
 }
-function UH(r, t) {
+function U4(r, t) {
   var e = t === "vertical" ? "x" : "y";
   I(r, function(a) {
     a.outEdges.sort(function(n, i) {
@@ -30143,7 +30143,7 @@ function UH(r, t) {
     });
   });
 }
-function YH(r) {
+function Y4(r) {
   r.eachSeriesByType("sankey", function(t) {
     var e = t.getGraph(), a = e.nodes, n = e.edges;
     if (a.length) {
@@ -30171,8 +30171,8 @@ function YH(r) {
     });
   });
 }
-function ZH(r) {
-  r.registerChartView(DH), r.registerSeriesModel(AH), r.registerLayout(MH), r.registerVisual(YH), r.registerAction({
+function Z4(r) {
+  r.registerChartView(D4), r.registerSeriesModel(A4), r.registerLayout(M4), r.registerVisual(Y4), r.registerAction({
     type: "dragNode",
     event: "dragnode",
     // here can only use 'update' now, other value is not support in echarts.
@@ -30279,7 +30279,7 @@ var p2 = (
   }(lt)
 );
 Mt(g2, p2, !0);
-var XH = (
+var X4 = (
   /** @class */
   function(r) {
     W(t, r);
@@ -30315,14 +30315,14 @@ var XH = (
       });
     }, t.type = "boxplot", t;
   }(nt)
-), qH = (
+), q4 = (
   /** @class */
   /* @__PURE__ */ function() {
     function r() {
     }
     return r;
   }()
-), KH = (
+), K4 = (
   /** @class */
   function(r) {
     W(t, r);
@@ -30331,7 +30331,7 @@ var XH = (
       return a.type = "boxplotBoxPath", a;
     }
     return t.prototype.getDefaultShape = function() {
-      return new qH();
+      return new q4();
     }, t.prototype.buildPath = function(e, a) {
       var n = a.points, i = 0;
       for (e.moveTo(n[i][0], n[i][1]), i++; i < 4; i++)
@@ -30342,9 +30342,9 @@ var XH = (
   }(ze)
 );
 function mb(r, t, e, a, n) {
-  var i = r.ends, o = new KH({
+  var i = r.ends, o = new K4({
     shape: {
-      points: n ? jH(i, a, r) : i
+      points: n ? j4(i, a, r) : i
     }
   });
   return y2(r, o, t, e, n), o;
@@ -30359,14 +30359,14 @@ function y2(r, t, e, a, n) {
   var s = e.getItemModel(a), l = s.getModel("emphasis");
   Yt(t, s), pt(t, l.get("focus"), l.get("blurScope"), l.get("disabled"));
 }
-function jH(r, t, e) {
+function j4(r, t, e) {
   return K(r, function(a) {
     return a = a.slice(), a[t] = e.initBaseline, a;
   });
 }
 var Bl = I;
-function QH(r) {
-  var t = JH(r);
+function Q4(r) {
+  var t = J4(r);
   Bl(t, function(e) {
     var a = e.seriesModels;
     a.length && (eW(e), Bl(a, function(n, i) {
@@ -30374,7 +30374,7 @@ function QH(r) {
     }));
   });
 }
-function JH(r) {
+function J4(r) {
   var t = [], e = [];
   return r.eachSeriesByType("boxplot", function(a) {
     var n = a.getBaseAxis(), i = Oe(e, n);
@@ -30469,7 +30469,7 @@ var aW = {
   }
 };
 function nW(r) {
-  r.registerSeriesModel(g2), r.registerChartView(XH), r.registerLayout(QH), r.registerTransform(aW);
+  r.registerSeriesModel(g2), r.registerChartView(X4), r.registerLayout(Q4), r.registerTransform(aW);
 }
 var iW = ["itemStyle", "borderColor"], oW = ["itemStyle", "borderColor0"], sW = ["itemStyle", "borderColorDoji"], lW = ["itemStyle", "color"], uW = ["itemStyle", "color0"];
 function e0(r, t) {
@@ -44158,7 +44158,7 @@ function r9(r) {
 }
 Ve([h5]);
 Ve([l5]);
-Ve([R5, X5, nF, VF, XF, NG, l3, U3, h4, _4, M4, bH, ZH, nW, SW, TW, NW, GW, QW, n6, d6, K6]);
+Ve([R5, X5, nF, VF, XF, NG, l3, U3, hH, _H, MH, b4, Z4, nW, SW, TW, NW, GW, QW, n6, d6, K6]);
 Ve(p$);
 Ve(G$);
 Ve(MI);
@@ -45049,7 +45049,7 @@ const b9 = ["innerHTML"], w9 = /* @__PURE__ */ XL({
       ], 36)
     ], 512));
   }
-}), T9 = { class: "table" }, D9 = { class: "table-header" }, C9 = { class: "cell" }, A9 = { key: 0 }, M9 = { class: "cell" }, I9 = {
+}), T9 = { class: "table table-container" }, D9 = { class: "table-header" }, C9 = { class: "cell" }, A9 = { key: 0 }, M9 = { class: "cell" }, I9 = {
   key: 1,
   style: { width: "100%", height: "100px", display: "flex", "justify-content": "center", "align-items": "center", color: "white", "font-size": "18px" }
 }, L9 = {
@@ -45115,7 +45115,7 @@ const b9 = ["innerHTML"], w9 = /* @__PURE__ */ XL({
       }, 8, ["classOptions", "dataList"])
     ]));
   }
-}, E9 = /* @__PURE__ */ jv(L9, [["__scopeId", "data-v-945ca337"]]), P9 = { class: "search-group" }, R9 = { class: "param-group" }, N9 = {
+}, E9 = /* @__PURE__ */ jv(L9, [["__scopeId", "data-v-65862f26"]]), P9 = { class: "search-group" }, R9 = { class: "param-group" }, N9 = {
   __name: "index",
   props: {
     config: {
