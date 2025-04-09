@@ -1,6 +1,5 @@
 <template>
     <div class="table">
-        {{ columns }}-{{ tableData }}
         <div class="table-header">
             <div
                 class="table-column"
