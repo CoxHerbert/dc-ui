@@ -82,7 +82,6 @@
 import { reactive, toRefs, getCurrentInstance } from 'vue';
 import store from '../../../store';
 const { proxy } = getCurrentInstance();
-const cacheData = computed(() => proxy.$store.getters.api);
 const props = defineProps({
     // 类的名称
     objectName: {

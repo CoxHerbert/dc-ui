@@ -3,11 +3,9 @@
 </template>
 
 <script setup>
-import { reactive, getCurrentInstance } from 'vue';
+import { reactive, computed } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
-const { proxy } = getCurrentInstance();
-const cacheData = computed(() => proxy.$store.getters.api);
 const props = defineProps({
     // 需要展示的类名 比如用户 user
     objectName: {

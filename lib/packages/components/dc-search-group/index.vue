@@ -43,16 +43,9 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, onBeforeMount } from 'vue';
+import { onBeforeMount, computed } from 'vue';
 
 const emit = defineEmits(['search']);
-
-const { proxy } = getCurrentInstance();
-
-const { DC_CRM_OPPS_FROM, DC_CRM_OPPS_STATUS, DC_CRM_OPPS_LEVEL } = proxy.useCache([
-    { key: 'DC_CRM_OPPS_STATUS' },
-    { key: 'DC_CRM_OPPS_LEVEL' },
-]);
 
 const props = defineProps({
     config: {

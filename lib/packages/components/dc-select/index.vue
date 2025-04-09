@@ -16,10 +16,9 @@
 </template>
 
 <script setup>
-import { reactive, toRefs } from 'vue';
+import { reactive, toRefs, computed } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store/index';
-const cacheData = computed(() => store.getters.api);
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
     // 绑定的值

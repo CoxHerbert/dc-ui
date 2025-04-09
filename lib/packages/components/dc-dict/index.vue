@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance } from 'vue';
+import { computed, getCurrentInstance } from 'vue';
 const { proxy } = getCurrentInstance();
 
 const props = defineProps({

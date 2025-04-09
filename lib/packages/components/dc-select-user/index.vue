@@ -194,11 +194,11 @@
 </template>
 
 <script setup>
-import { nextTick, reactive, toRefs, getCurrentInstance } from 'vue';
+import { nextTick, reactive, toRefs } from 'vue';
 import ComponentApi from '../../api/index';
 import store from '../../../store';
 import { deepClone } from '../../../utils/util';
-const Api = window.$dcConfig.api;
+const Api = inject('globalData');
 // 校验数量
 const validateSelectionLimit = ({ selection }) => {
     let mergedArray = [...showSelectedRows.value];
