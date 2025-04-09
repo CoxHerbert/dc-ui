@@ -912,13 +912,12 @@ for (const [e, t] of Object.entries(B))
   P.component(e, t);
 P.use(nt);
 P.use(rt);
-const Jt = {
-  install(e, t) {
-    window.$dcConfig = t, rt.dispatch("UpdateApi", t.api);
-    for (const [n, r] of Object.entries(B))
-      console.log("install", n), e.component(n, r);
-  }
+const Jt = (e, t) => {
+  window.$dcConfig = t, rt.dispatch("UpdateApi", t.api);
+  for (const [n, r] of Object.entries(B))
+    console.log("install", n), e.component(n, r);
 };
 export {
-  Jt as default
+  B as components,
+  Jt as install
 };

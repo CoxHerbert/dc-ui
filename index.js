@@ -11,15 +11,14 @@ for (const [key, component] of Object.entries(components)) {
 }
 app.use(ElementPlus);
 app.use(store);
-
-export default {
-    install(Vue, options) {
-        // 你可以在这里进行任何初始化操作
-        window.$dcConfig = options;
-        store.dispatch('UpdateApi', options.api);
-        for (const [key, component] of Object.entries(components)) {
-            console.log('install', key);
-            Vue.component(key, component);
-        }
-    },
+const install = (Vue, options) => {
+    // 你可以在这里进行任何初始化操作
+    window.$dcConfig = options;
+    store.dispatch('UpdateApi', options.api);
+    for (const [key, component] of Object.entries(components)) {
+        console.log('install', key);
+        Vue.component(key, component);
+    }
 };
+
+export { install, components };
