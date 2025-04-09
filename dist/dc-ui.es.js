@@ -45049,7 +45049,7 @@ const b9 = ["innerHTML"], w9 = /* @__PURE__ */ XL({
       ], 36)
     ], 512));
   }
-}), T9 = { class: "table table-container" }, D9 = { class: "table-header" }, C9 = { class: "cell" }, A9 = { key: 0 }, M9 = { class: "cell" }, I9 = {
+}), T9 = { class: "scroll-seamless-container" }, D9 = { class: "table-header" }, C9 = { class: "cell" }, A9 = { key: 0 }, M9 = { class: "cell" }, I9 = {
   key: 1,
   style: { width: "100%", height: "100px", display: "flex", "justify-content": "center", "align-items": "center", color: "white", "font-size": "18px" }
 }, L9 = {
@@ -45115,7 +45115,7 @@ const b9 = ["innerHTML"], w9 = /* @__PURE__ */ XL({
       }, 8, ["classOptions", "dataList"])
     ]));
   }
-}, E9 = /* @__PURE__ */ jv(L9, [["__scopeId", "data-v-65862f26"]]), P9 = { class: "search-group" }, R9 = { class: "param-group" }, N9 = {
+}, E9 = /* @__PURE__ */ jv(L9, [["__scopeId", "data-v-7b5f77dd"]]), P9 = { class: "search-group" }, R9 = { class: "param-group" }, N9 = {
   __name: "index",
   props: {
     config: {

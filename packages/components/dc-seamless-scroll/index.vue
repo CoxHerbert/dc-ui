@@ -1,5 +1,5 @@
 <template>
-    <div class="table table-container">
+    <div class="scroll-seamless-container">
         <div class="table-header">
             <div
                 class="table-column"
@@ -74,8 +74,7 @@ const classOptions = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.table,
-.table-container {
+.scroll-seamless-container {
     width: 100%;
     height: 100%;
     color: #000;
@@ -107,8 +106,6 @@ const classOptions = computed(() => {
         align-items: center;
         overflow: hidden;
         word-break: break-all;
-        .cell {
-        }
     }
     .left {
         text-align: left;
