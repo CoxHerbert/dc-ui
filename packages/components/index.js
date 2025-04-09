@@ -9,10 +9,9 @@ const setGlobalConfig = (config) => {
     console.log('setGlobalConfig:', globalConfig, 'config:', config);
 };
 
-const getGlobalConfig = () => globalConfig;
-
 export default {
     install(app, config) {
+        app.provide('globalConfig', globalConfig);
         app.component('dc-dict', dcDict);
         app.component('dc-dict-key', dcDictKey);
         app.component('dc-view', dcView);
