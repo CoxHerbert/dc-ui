@@ -1,5 +1,4 @@
 <template>
-    {{ cacheData }}
     <div style="display: inline-block">{{ viewText || props.modelValue || '-' }}</div>
 </template>
 
