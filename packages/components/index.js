@@ -1,14 +1,13 @@
 import MyTable from './MyTable.vue';
 import MyButton from './MyButton.vue';
-
-const components = [MyTable, MyButton];
+import dcDict from './dc-dict/index.vue';
+import dcDictKey from './dc-dict-key/index.vue';
 
 export default {
     install(app) {
         app.component('MyTable', MyTable);
         app.component('MyButton', MyButton);
-        // components.forEach((comp) => {
-        //     app.component(comp.name, comp);
-        // });
+        app.component('dc-dict', dcDict);
+        app.component('dc-dict-key', dcDictKey);
     },
 };
