@@ -8,15 +8,15 @@ import dcDragPanel from './dc-drag-panel/index.vue';
 import dcPagination from './dc-pagination/index.vue';
 import dcSeamlessScroll from './dc-seamless-scroll/index.vue';
 import dcSearchGroup from './dc-search-group/index.vue';
+import dcSelect from './dc-select/index.vue';
+import dcSelectDialog from './dc-select-dialog/index.vue';
+import dcSelectDialogV2 from './dc-select-dialog-v2/index.vue';
+import dcSelectPrint from './dc-select-print/index.vue';
+import dcSelectRemote from './dc-select-remote/index.vue';
+import dcSelectUser from './dc-select-user/index.vue';
+import dcUpload from './dc-upload/index.vue';
 
-let globalConfig = {
-    // 组件数据options
-    cacheData: {},
-    // 请求方法
-    axios: null,
-    // vuex仓库
-    store: null,
-};
+let globalConfig = {};
 
 const setGlobalConfig = (config) => {
     globalConfig = config;
@@ -35,6 +35,13 @@ export default {
         app.component('dc-pagination', dcPagination);
         app.component('dc-seamless-scroll', dcSeamlessScroll);
         app.component('dc-search-group', dcSearchGroup);
+        app.component('dc-select', dcSelect);
+        app.component('dc-select-dialog', dcSelectDialog);
+        app.component('dc-select-dialog-v2', dcSelectDialogV2);
+        app.component('dc-select-print', dcSelectPrint);
+        app.component('dc-select-remote', dcSelectRemote);
+        app.component('dc-select-user', dcSelectUser);
+        app.component('dc-upload', dcUpload);
 
         setGlobalConfig(config);
         app.provide('globalConfig', globalConfig);
