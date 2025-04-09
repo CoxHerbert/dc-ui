@@ -1,13 +1,13 @@
 {
-    "name": "my-business-ui",
+    "name": "dc-ui",
     "version": "0.1.0",
     "description": "基于 Element Plus 封装的业务组件库",
-    "main": "dist/my-business-ui.umd.js",
-    "module": "dist/my-business-ui.es.js",
+    "main": "dist/dc-ui.umd.js",
+    "module": "dist/dc-ui.es.js",
     "exports": {
         ".": {
-            "import": "./dist/my-business-ui.es.js",
-            "require": "./dist/my-business-ui.umd.js"
+            "import": "./dist/dc-ui.es.js",
+            "require": "./dist/dc-ui.umd.js"
         }
     },
     "files": [

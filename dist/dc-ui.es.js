@@ -1,10 +1,10 @@
-import { resolveComponent as o, createElementBlock as m, openBlock as r, createVNode as f, createBlock as c, createCommentVNode as y, mergeProps as i, withCtx as s, renderSlot as p } from "vue";
-const u = (t, a) => {
+import { resolveComponent as o, createElementBlock as m, openBlock as r, createVNode as y, createBlock as c, createCommentVNode as f, mergeProps as i, withCtx as u, renderSlot as p } from "vue";
+const s = (t, a) => {
   const e = t.__vccOpts || t;
   for (const [n, l] of a)
     e[n] = l;
   return e;
-}, h = {
+}, b = {
   name: "MyTable",
   props: {
     tableData: {
@@ -26,11 +26,11 @@ const u = (t, a) => {
     }
   }
 };
-function b(t, a, e, n, l, d) {
+function h(t, a, e, n, l, d) {
   const g = o("el-table"), _ = o("el-pagination");
   return r(), m("div", null, [
-    f(g, i({ data: e.tableData }, t.$attrs), {
-      default: s(() => [
+    y(g, i({ data: e.tableData }, t.$attrs), {
+      default: u(() => [
         p(t.$slots, "default")
       ]),
       _: 3
@@ -41,10 +41,10 @@ function b(t, a, e, n, l, d) {
       "current-page": e.pagination.currentPage,
       "page-size": e.pagination.pageSize,
       onCurrentChange: d.handlePageChange
-    }, null, 8, ["total", "current-page", "page-size", "onCurrentChange"])) : y("", !0)
+    }, null, 8, ["total", "current-page", "page-size", "onCurrentChange"])) : f("", !0)
   ]);
 }
-const C = /* @__PURE__ */ u(h, [["render", b]]), k = {
+const C = /* @__PURE__ */ s(b, [["render", h]]), M = {
   __name: "MyButton",
   props: {
     type: {
@@ -59,20 +59,18 @@ const C = /* @__PURE__ */ u(h, [["render", b]]), k = {
         type: t.type,
         class: "my-button"
       }), {
-        default: s(() => [
+        default: u(() => [
           p(a.$slots, "default", {}, void 0, !0)
         ]),
         _: 3
       }, 16, ["type"]);
     };
   }
-}, v = /* @__PURE__ */ u(k, [["__scopeId", "data-v-87bcc8fa"]]), B = [C, v], P = {
+}, B = /* @__PURE__ */ s(M, [["__scopeId", "data-v-87bcc8fa"]]), v = {
   install(t) {
-    B.forEach((a) => {
-      t.component(a.name, a);
-    });
+    t.component("MyTable", C), t.component("MyButton", B);
   }
 };
 export {
-  P as default
+  v as default
 };

@@ -5,8 +5,10 @@ const components = [MyTable, MyButton];
 
 export default {
     install(app) {
-        components.forEach((comp) => {
-            app.component(comp.name, comp);
-        });
+        app.component('MyTable', MyTable);
+        app.component('MyButton', MyButton);
+        // components.forEach((comp) => {
+        //     app.component(comp.name, comp);
+        // });
     },
 };

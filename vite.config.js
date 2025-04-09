@@ -7,8 +7,8 @@ export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, 'index.js'),
-            name: 'MyBusinessUI',
-            fileName: (format) => `my-business-ui.${format}.js`,
+            name: 'dcui',
+            fileName: (format) => `dc-ui.${format}.js`,
         },
         rollupOptions: {
             external: ['vue', 'element-plus'],
