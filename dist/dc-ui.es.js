@@ -215,7 +215,7 @@ const Rm = (r, e = 1) => {
       () => a.modelValue,
       async (l, u) => {
         try {
-          o.value = e[a.objectName];
+          o.value = e[a.objectName], console.log("currentObject.value", e, a.objectName);
           let f;
           if (Array.isArray(l))
             f = l.map((c) => (c == null ? void 0 : c.id) || c);
