@@ -18,6 +18,7 @@ export default {
         window.$dcConfig = options;
         store.dispatch('UpdateApi', options.api);
         for (const [key, component] of Object.entries(components)) {
+            console.log('install', key);
             Vue.component(key, component);
         }
     },

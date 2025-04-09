@@ -118,7 +118,7 @@ function ht() {
 function Q() {
   return typeof navigator < "u" && typeof window < "u" ? window : typeof globalThis < "u" ? globalThis : {};
 }
-const vt = typeof Proxy == "function", mt = "devtools-plugin:setup", gt = "plugin:settings:set";
+const vt = typeof Proxy == "function", gt = "devtools-plugin:setup", mt = "plugin:settings:set";
 let y, D;
 function _t() {
   var e;
@@ -157,7 +157,7 @@ class bt {
       now() {
         return yt();
       }
-    }, n && n.on(gt, (i, c) => {
+    }, n && n.on(mt, (i, c) => {
       i === this.plugin.id && this.fallbacks.setSettings(c);
     }), this.proxiedOn = new Proxy({}, {
       get: (i, c) => this.target ? this.target.on[c] : (...a) => {
@@ -192,7 +192,7 @@ class bt {
 function Et(e, t) {
   const n = e, r = Q(), o = ht(), s = vt && n.enableEarlyProxy;
   if (o && (r.__VUE_DEVTOOLS_PLUGIN_API_AVAILABLE__ || !s))
-    o.emit(mt, e, t);
+    o.emit(gt, e, t);
   else {
     const i = s ? new bt(n, o) : null;
     (r.__VUE_DEVTOOLS_PLUGINS__ = r.__VUE_DEVTOOLS_PLUGINS__ || []).push({
@@ -208,7 +208,7 @@ function Et(e, t) {
  * @license MIT
  */
 var Ot = "store";
-function g(e, t) {
+function m(e, t) {
   Object.keys(e).forEach(function(n) {
     return t(e[n], n);
   });
@@ -244,7 +244,7 @@ function j(e, t, n) {
   e.getters = {}, e._makeLocalGettersCache = /* @__PURE__ */ Object.create(null);
   var s = e._wrappedGetters, i = {}, c = {}, a = st(!0);
   a.run(function() {
-    g(s, function(f, u) {
+    m(s, function(f, u) {
       i[u] = St(f, e), c[u] = T(function() {
         return i[u]();
       }), Object.defineProperty(e.getters, u, {
@@ -595,7 +595,7 @@ function I(e) {
     return t;
   }
 }
-var m = function(t, n) {
+var g = function(t, n) {
   this.runtime = n, this._children = /* @__PURE__ */ Object.create(null), this._rawModule = t;
   var r = t.state;
   this.state = (typeof r == "function" ? r() : r) || {};
@@ -603,34 +603,34 @@ var m = function(t, n) {
 Z.namespaced.get = function() {
   return !!this._rawModule.namespaced;
 };
-m.prototype.addChild = function(t, n) {
+g.prototype.addChild = function(t, n) {
   this._children[t] = n;
 };
-m.prototype.removeChild = function(t) {
+g.prototype.removeChild = function(t) {
   delete this._children[t];
 };
-m.prototype.getChild = function(t) {
+g.prototype.getChild = function(t) {
   return this._children[t];
 };
-m.prototype.hasChild = function(t) {
+g.prototype.hasChild = function(t) {
   return t in this._children;
 };
-m.prototype.update = function(t) {
+g.prototype.update = function(t) {
   this._rawModule.namespaced = t.namespaced, t.actions && (this._rawModule.actions = t.actions), t.mutations && (this._rawModule.mutations = t.mutations), t.getters && (this._rawModule.getters = t.getters);
 };
-m.prototype.forEachChild = function(t) {
-  g(this._children, t);
+g.prototype.forEachChild = function(t) {
+  m(this._children, t);
 };
-m.prototype.forEachGetter = function(t) {
-  this._rawModule.getters && g(this._rawModule.getters, t);
+g.prototype.forEachGetter = function(t) {
+  this._rawModule.getters && m(this._rawModule.getters, t);
 };
-m.prototype.forEachAction = function(t) {
-  this._rawModule.actions && g(this._rawModule.actions, t);
+g.prototype.forEachAction = function(t) {
+  this._rawModule.actions && m(this._rawModule.actions, t);
 };
-m.prototype.forEachMutation = function(t) {
-  this._rawModule.mutations && g(this._rawModule.mutations, t);
+g.prototype.forEachMutation = function(t) {
+  this._rawModule.mutations && m(this._rawModule.mutations, t);
 };
-Object.defineProperties(m.prototype, Z);
+Object.defineProperties(g.prototype, Z);
 var _ = function(t) {
   this.register([], t, !1);
 };
@@ -651,14 +651,14 @@ _.prototype.update = function(t) {
 _.prototype.register = function(t, n, r) {
   var o = this;
   r === void 0 && (r = !0), process.env.NODE_ENV !== "production" && et(t, n);
-  var s = new m(n, r);
+  var s = new g(n, r);
   if (t.length === 0)
     this.root = s;
   else {
     var i = this.get(t.slice(0, -1));
     i.addChild(t[t.length - 1], s);
   }
-  n.modules && g(n.modules, function(c, a) {
+  n.modules && m(n.modules, function(c, a) {
     o.register(t.concat(a), c, r);
   });
 };
@@ -711,7 +711,7 @@ function et(e, t) {
   Object.keys(R).forEach(function(n) {
     if (t[n]) {
       var r = R[n];
-      g(t[n], function(o, s) {
+      m(t[n], function(o, s) {
         v(
           r.assert(o),
           Rt(e, n, s, o, r.expected)
@@ -916,7 +916,7 @@ const Jt = {
   install(e, t) {
     window.$dcConfig = t, rt.dispatch("UpdateApi", t.api);
     for (const [n, r] of Object.entries(B))
-      e.component(n, r);
+      console.log("install", n), e.component(n, r);
   }
 };
 export {
