@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { hexToRgba } from '../../utils/util';
 
 const props = defineProps({

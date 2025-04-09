@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 const props = defineProps({
     // 类型
     type: {
