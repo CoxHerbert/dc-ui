@@ -36,7 +36,6 @@ watch(
     async (newVal, oldVal) => {
         try {
             currentObject.value = cacheData[props.objectName];
-            console.log('currentObject.value', cacheData, props.objectName);
             let ids;
             if (Array.isArray(newVal)) {
                 ids = newVal.map((item) => item?.id || item);

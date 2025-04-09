@@ -18,13 +18,9 @@ import dcUpload from './dc-upload/index.vue';
 
 let globalConfig = {};
 
-const setGlobalConfig = (config) => {
-    globalConfig = config;
-    console.log('setGlobalConfig:', globalConfig, 'config:', config);
-};
-
 export default {
     install(app, config) {
+        globalConfig = config;
         app.component('dc-dict', dcDict);
         app.component('dc-dict-key', dcDictKey);
         app.component('dc-view', dcView);
@@ -43,7 +39,6 @@ export default {
         app.component('dc-select-user', dcSelectUser);
         app.component('dc-upload', dcUpload);
 
-        setGlobalConfig(config);
         app.provide('globalConfig', globalConfig);
     },
 };
