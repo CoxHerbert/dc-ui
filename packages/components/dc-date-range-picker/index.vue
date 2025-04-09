@@ -86,7 +86,7 @@ const disableStartDate = (time) => {
 const disableEndDate = (time) => {
     const startDate = localStartDate.value ? dayjs(localStartDate.value).startOf('day') : null;
     const earliestDate = propEarliestDate.value ? dayjs(propEarliestDate.value).startOf('day') : null;
-
+    let minAllowedEndDate;
     if (earliestDate) {
         minAllowedEndDate = startDate ? (startDate.isBefore(earliestDate) ? earliestDate : startDate) : earliestDate;
     } else {
