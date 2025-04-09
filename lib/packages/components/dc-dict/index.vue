@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { computed, getCurrentInstance } from 'vue';
+import { computed, getCurrentInstance, defineProps } from 'vue';
 const { proxy } = getCurrentInstance();
 
 const props = defineProps({
@@ -69,5 +69,3 @@ const option = computed(() => {
     };
 });
 </script>
-
-<style lang="scss" scoped></style>
