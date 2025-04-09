@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-import { inject, defineProps, ref, computed, watch } from 'vue';
+import { inject, defineEmits, defineProps, ref, computed, watch } from 'vue';
 import { Base64 } from 'js-base64';
 import { downloadFileBlob, getFileIconByUrl } from '../../utils/util';
 import modal from '../../utils/modal';
