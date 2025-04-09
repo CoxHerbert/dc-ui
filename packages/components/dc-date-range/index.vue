@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { nextTick, defineProps, defineEmits, watch, onBeforeMount } from 'vue';
+import { nextTick, defineProps, ref, defineEmits, watch, onBeforeMount } from 'vue';
 
 const emit = defineEmits();
 
@@ -95,5 +95,3 @@ const updateModelValue = () => {
     emit('change', params);
 };
 </script>
-
-<style scoped></style>
