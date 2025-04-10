@@ -15,6 +15,7 @@ import dcSelectPrint from './dc-select-print/index.vue';
 import dcSelectRemote from './dc-select-remote/index.vue';
 import dcSelectUser from './dc-select-user/index.vue';
 import dcUpload from './dc-upload/index.vue';
+import dcUploadImg from './dc-upload-img/index.vue';
 
 let globalConfig = {};
 
@@ -38,6 +39,7 @@ export default {
         app.component('dc-select-remote', dcSelectRemote);
         app.component('dc-select-user', dcSelectUser);
         app.component('dc-upload', dcUpload);
+        app.component('dc-upload-img', dcUploadImg);
 
         app.provide('globalConfig', globalConfig);
     },

@@ -173,7 +173,7 @@
 import { defineEmits, defineProps, computed, watch, nextTick, reactive, toRefs, defineExpose, inject } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { useCache } from '../../utils/cache';
-const { cacheData, store, api } = inject('globalConfig');
+const { cacheData, store, request } = inject('globalConfig');
 
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
@@ -354,7 +354,7 @@ watch(
 
         if (currentObject.value.url) {
             try {
-                await api.getView({
+                await request.getView({
                     url: currentObject.value.url,
                     data: ids,
                 });

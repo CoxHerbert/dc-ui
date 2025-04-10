@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, nextTick, shallowRef, defineEmits, disabledDate } from 'vue';
+import { ref, computed, watch, nextTick, shallowRef, defineEmits } from 'vue';
 import dayjs from 'dayjs';
 
 const customPrefix = shallowRef({
@@ -150,65 +150,3 @@ const clear = () => {
     emit('change', { startDate: localStartDate.value, endDate: localEndDate.value });
 };
 </script>
-
-<style lang="scss">
-/* 自定义日期选择器弹出层 */
-.custom-datepicker-popper {
-    position: relative;
-    &::before {
-        display: block;
-        text-align: center;
-        font-weight: bold;
-        padding: 8px;
-        background-color: #f5f5f5;
-        border-bottom: 1px solid #ddd;
-    }
-    &-start {
-        &::before {
-            content: '开始时间';
-        }
-    }
-    &-end {
-        &::before {
-            content: '结束时间';
-        }
-    }
-}
-</style>
-
-<style lang="scss" scoped>
-.date-range-picker {
-    border: 1px solid #dcdfe6;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    &:hover {
-        .clear-icon {
-            display: block;
-        }
-    }
-    :deep(.el-input) {
-        flex: 1;
-    }
-    :deep(.el-input__prefix) {
-        display: none;
-    }
-    :deep(.el-input__wrapper) {
-        box-shadow: none;
-        padding: 0;
-    }
-    :deep(.el-input__inner) {
-        text-align: center;
-    }
-    .clear {
-        width: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &-icon {
-            display: none;
-        }
-    }
-}
-</style>
