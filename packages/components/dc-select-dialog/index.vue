@@ -375,6 +375,7 @@ watch(
 
         if (currentObject.value.url) {
             try {
+                console.log('request', request);
                 await request.getView({
                     url: currentObject.value.url,
                     data: ids,
