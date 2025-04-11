@@ -197,8 +197,7 @@
 import { inject, defineEmits, defineProps, reactive, toRefs, computed, watch, nextTick } from 'vue';
 import { ElMessage } from 'element-plus';
 import { deepClone } from '../../utils/util';
-import request from '../../utils/request';
-const { store, api } = inject('globalConfig');
+const { store, api, request } = inject('globalConfig');
 
 // 校验数量
 const validateSelectionLimit = ({ selection }) => {

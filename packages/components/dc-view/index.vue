@@ -4,8 +4,7 @@
 
 <script setup>
 import { defineProps, reactive, toRefs, watch, computed, inject } from 'vue';
-import request from '../../utils/request';
-const { cacheData, store } = inject('globalConfig');
+const { cacheData, store, request } = inject('globalConfig');
 
 const props = defineProps({
     // 需要展示的类名 比如用户 user
