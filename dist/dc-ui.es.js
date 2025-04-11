@@ -45317,6 +45317,7 @@ const x9 = ["innerHTML"], b9 = /* @__PURE__ */ qL({
     };
   }
 }, M0 = (r) => {
+  console.log("cacheArr", r);
   const { store: t } = Tr("globalConfig"), e = ot({});
   return r.forEach(async (a) => {
     e.value[a.key] = [];

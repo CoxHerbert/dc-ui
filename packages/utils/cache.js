@@ -2,6 +2,7 @@ import { ref, toRefs, inject } from 'vue';
 
 // 全局缓存
 export const useCache = (cacheArr) => {
+    console.log('cacheArr', cacheArr);
     const { store } = inject('globalConfig');
     const res = ref({});
     return (() => {
