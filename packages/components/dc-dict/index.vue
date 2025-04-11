@@ -1,6 +1,5 @@
 <template>
     <span
-        v-bind="$attrs"
         v-if="type === 'tag'"
         :style="{
             background: option?.bgColor || hexToRgba(option?.remark, 0.1),
@@ -10,8 +9,8 @@
     >
         {{ option?.label || value || '-' }}
     </span>
-    <span v-bind="$attrs" v-if="type === 'text'">{{ option?.label || '-' }}</span>
-    <span v-bind="$attrs" class="dict" :class="option?.listClass" v-if="type === 'tag' && !!option?.listClass">{{
+    <span v-if="type === 'text'">{{ option?.label || '-' }}</span>
+    <span class="dict" :class="option?.listClass" v-if="type === 'tag' && !!option?.listClass">{{
         option?.label || '-'
     }}</span>
 </template>

@@ -2,92 +2,87 @@ import { inject } from 'vue';
 
 const queue = {};
 
+async function handleBatchRequest(url, axios, store) {
+    const currentQueue = queue[url];
+    const globalData = store.getters.globalData;
+
+    if (!currentQueue || currentQueue.data.length === 0) {
+        currentQueue?.promises.forEach(({ resolve }) => {
+            const fallback = currentQueue.data?.map((id) => globalData[url][id] || { id });
+            resolve(fallback || []);
+        });
+        delete queue[url];
+        return;
+    }
+
+    try {
+        const res = await axios({
+            url,
+            method: 'post',
+            data: currentQueue.data,
+        });
+
+        const { code, data: responseData } = res.data;
+
+        if (code === 200) {
+            // 写入缓存
+            responseData.forEach((item) => {
+                const id = item.id ?? item.fnumber;
+                if (id != null) {
+                    item.id = id;
+                    globalData[url][id] = item;
+                }
+            });
+
+            // 用传入的原始 data 顺序返回对应的结果
+            const result = currentQueue.promises.map(({ resolve }, idx) => {
+                const requestData = currentQueue.promises[idx].requestData || [];
+                const resData = requestData.map((id) => globalData[url][id] || { id });
+                resolve(resData);
+            });
+        } else {
+            throw new Error(`Request failed with code: ${code}`);
+        }
+    } catch (error) {
+        currentQueue.promises.forEach(({ reject }) => reject(error));
+    } finally {
+        delete queue[url];
+    }
+}
+
 export default {
     getView({ url, data }) {
         const { axios, store } = inject('globalConfig');
+
         return new Promise((resolve, reject) => {
             if (!queue[url]) {
-                // 初始化队列
                 queue[url] = {
                     data: [],
                     timer: null,
                     promises: [],
                 };
             }
+
             const globalData = store.getters.globalData;
 
-            // 确保 globalData[url] 被初始化为对象
-            if (!globalData[url]) {
-                globalData[url] = {};
-            }
+            // 初始化缓存结构
+            if (!globalData[url]) globalData[url] = {};
 
             const currentQueue = queue[url];
-            const currentGlobalData = globalData[url];
-            const currentGlobalDataIds = Object.keys(currentGlobalData);
+            const cachedIds = Object.keys(globalData[url]);
 
-            // 过滤 data 中的重复数据（与 globalData 中的 id 比较）
-            const filteredData = data.filter((id) => !currentGlobalDataIds.includes(String(id)));
+            // 过滤掉已有缓存的 id
+            const newIds = data.filter((id) => !cachedIds.includes(String(id)));
 
-            // 合并请求数据并去重
-            currentQueue.data = [...new Set([...currentQueue.data, ...filteredData])];
+            // 合并去重
+            currentQueue.data = [...new Set([...currentQueue.data, ...newIds])];
 
-            // 保存当前请求的 Promise
+            // 缓存当前请求的 Promise
             currentQueue.promises.push({ resolve, reject });
 
-            // 如果没有定时器，设置 200ms 延迟请求
+            // 启动延迟合并请求
             if (!currentQueue.timer) {
-                currentQueue.timer = setTimeout(async () => {
-                    // 如果队列中没有数据，直接清空并返回
-                    if (currentQueue.data.length === 0) {
-                        const resData = data.map((id) => globalData[url][id]); // 直接返回传入数据结构，填充为 null
-                        currentQueue.promises.forEach(({ resolve }) => resolve(resData));
-                        delete queue[url];
-                        return;
-                    }
-
-                    try {
-                        // 发起请求
-                        const res = await axios({
-                            url,
-                            method: 'post',
-                            data: currentQueue.data,
-                        });
-                        const { code, data: responseData } = res.data;
-
-                        if (code === 200) {
-                            // 更新 globalData 缓存
-                            responseData.forEach((item) => {
-                                if (item.id) {
-                                    globalData[url][item.id] = item;
-                                } else if (item.id == null && item.fnumber) {
-                                    item.id = item.fnumber;
-                                    globalData[url][item.fnumber] = item;
-                                }
-                            });
-                            // store.dispatch('UpdateGlobalData', globalData);
-                            const globalData2 = store.getters.globalData;
-
-                            // 根据传入的 data 匹配响应数据
-                            const resData = data.map((id) => {
-                                return globalData2[url][id] || { id };
-                            });
-
-                            // 触发所有保存的 Promise，返回用户传入 data 对应的结果
-                            currentQueue.promises.forEach(({ resolve }) => resolve(resData));
-                        } else {
-                            // 如果请求失败，触发所有 Promise 的 reject
-                            currentQueue.promises.forEach(({ reject }) =>
-                                reject(new Error(`Request failed with code: ${code}`))
-                            );
-                        }
-                    } catch (error) {
-                        // 请求异常时，触发所有 Promise 的 reject
-                        currentQueue.promises.forEach(({ reject }) => reject(error));
-                    } finally {
-                        // 清空队列
-                        delete queue[url];
-                    }
-                }, 300); // 200ms 延迟
+                currentQueue.timer = setTimeout(() => handleBatchRequest(url, axios, store), 300);
             }
         });
     },
