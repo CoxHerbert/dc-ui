@@ -416,12 +416,6 @@ watch(
     },
     { deep: true, immediate: true }
 );
-const dictKeys = currentObject.value?.column
-    .filter((item) => item.dictData)
-    .map((item) => ({
-        key: item.dictData,
-    }));
-dicts.value = useCache(dictKeys);
 // 获取用户
 const getData = async () => {
     let newqueryParams = {};
@@ -748,7 +742,17 @@ const openDialog = async () => {
     loading.value = true;
     infoRows.value = iptTagData.value;
     await getData();
+    getDicts();
     loading.value = false;
+};
+// 获取字典
+const getDicts = () => {
+    const dictKeys = currentObject.value?.column
+        .filter((item) => item.dictData)
+        .map((item) => ({
+            key: item.dictData,
+        }));
+    dicts.value = useCache(dictKeys);
 };
 // 关闭弹窗
 const closeDialog = () => {
