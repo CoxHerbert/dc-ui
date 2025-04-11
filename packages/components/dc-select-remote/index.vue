@@ -31,8 +31,8 @@
 
 <script setup>
 import { inject, defineEmits, defineProps, reactive, toRefs, computed, watch, onMounted } from 'vue';
-
-const { store, request, cacheData } = inject('globalConfig');
+import request from '../../utils/request';
+const { store, cacheData } = inject('globalConfig');
 
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
