@@ -94,39 +94,3 @@ const handleMouseDown = (event) => {
     addWindowEvent();
 };
 </script>
-
-<style lang="scss" scoped>
-.comp-drag-panel {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-
-    .split {
-        position: absolute;
-        width: 8px;
-        height: 100%;
-        left: 0;
-        top: 0;
-        z-index: 10;
-        border-left: 1px solid #dadbe0;
-    }
-
-    .left-panel {
-        height: 100%;
-        box-sizing: border-box;
-        padding-right: 10px;
-    }
-
-    .right-panel {
-        position: relative;
-        height: 100%;
-        flex: 1;
-    }
-
-    .split {
-        cursor: ew-resize;
-    }
-}
-</style>

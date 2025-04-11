@@ -8,7 +8,8 @@
         ".": {
             "import": "./dist/dc-ui.es.js",
             "require": "./dist/dc-ui.umd.js"
-        }
+        },
+        "./dc-ui.css": "./dist/dc-ui.css"
     },
     "files": [
         "dist"
@@ -25,7 +26,7 @@
         "component-library",
         "business-components"
     ],
-    "author": "你的名字或公司",
+    "author": "dc",
     "license": "MIT",
     "dependencies": {
         "axios": "^1.8.4",
