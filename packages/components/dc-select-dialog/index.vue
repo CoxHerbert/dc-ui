@@ -177,8 +177,7 @@
 import { defineEmits, defineProps, computed, nextTick, reactive, toRefs, defineExpose, inject, watch } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import request from '../../utils/request';
-import { useCache } from '../../utils/cache';
-const { cacheData, store } = inject('globalConfig');
+const { cacheData, store, useCache } = inject('globalConfig');
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({
     // 标题

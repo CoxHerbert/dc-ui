@@ -172,8 +172,7 @@
 <script setup>
 import { defineEmits, defineProps, computed, watch, nextTick, reactive, toRefs, defineExpose, inject } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
-import { useCache } from '../../utils/cache';
-const { cacheData, store, request } = inject('globalConfig');
+const { cacheData, store, request, useCache } = inject('globalConfig');
 
 const emit = defineEmits(['update:modelValue', 'change']);
 const props = defineProps({

@@ -120,9 +120,8 @@
 <script setup>
 import { defineEmits, defineProps, reactive, toRefs, computed, watch, nextTick, defineExpose } from 'vue';
 import { ElMessage } from 'element-plus';
-import { useCache } from '../../utils/cache';
 import { deepClone } from '../../utils/util';
-const { api } = inject('globalConfig');
+const { api, useCache } = inject('globalConfig');
 
 // 校验数量
 const validateSelectionLimit = ({ selection }) => {
